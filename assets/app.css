@@ -459,7 +459,7 @@ template {
 }
 .tobii__loader:before {
   animation: spin 1s infinite;
-  border: 0.22222em solid #949ba3;
+  border: 0.22222em solid #3f564d;
   border-radius: 100%;
   border-top: 0.22222em solid var(--loader-color);
   bottom: 0;
@@ -518,14 +518,14 @@ main {
   width: 100%;
 }
 a {
-  color: #65638f;
+  color: #3e856a;
   text-decoration: none;
 }
 a:hover {
-  color: #5a51fe;
+  color: #07B06E;
 }
 .button {
-  background: linear-gradient(65deg, #da552f, #ea8e39);
+  background: linear-gradient(65deg, #07B06E, #067e50);
   border: none;
   border-radius: 2px;
   box-shadow: 0 8px 24px rgba(32, 43, 54, 0.12);
@@ -554,14 +554,14 @@ a:hover {
 .button--link {
   background: transparent;
   box-shadow: none;
-  color: #5a51fe;
+  color: #07B06E;
 }
 .button--link:hover {
   box-shadow: none;
-  color: #8751fe;
+  color: #3e856a;
 }
 .accent {
-  color: #5a51fe;
+  color: #07B06E;
 }
 .container {
   margin: auto;
@@ -752,7 +752,7 @@ h2 {
 }
 .footer__container {
   align-items: center;
-  color: #65638f;
+  color: #3e856a;
   display: flex;
   justify-content: space-between;
   width: 100%;
