@@ -1,98 +1,107 @@
 ﻿/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
 
-.ubuntu-light {
-  font-family: "Ubuntu", sans-serif;
+.nunito-light {
+  font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
   font-style: normal;
 }
 
-.ubuntu-regular {
-  font-family: "Ubuntu", sans-serif;
+.nunito-regular {
+  font-family: "Nunito Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-.ubuntu-medium {
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 500;
+.nunito-semibold {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
   font-style: normal;
 }
 
-.ubuntu-bold {
-  font-family: "Ubuntu", sans-serif;
+.nunito-bold {
+  font-family: "Nunito Sans", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
-.ubuntu-light-italic {
-  font-family: "Ubuntu", sans-serif;
+.nunito-light-italic {
+  font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
   font-style: italic;
 }
 
-.ubuntu-regular-italic {
-  font-family: "Ubuntu", sans-serif;
+.nunito-regular-italic {
+  font-family: "Nunito Sans", sans-serif;
   font-weight: 400;
   font-style: italic;
 }
 
-.ubuntu-medium-italic {
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 500;
+.nunito-semibold-italic {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
   font-style: italic;
 }
 
-.ubuntu-bold-italic {
-  font-family: "Ubuntu", sans-serif;
+.nunito-bold-italic {
+  font-family: "Nunito Sans", sans-serif;
   font-weight: 700;
   font-style: italic;
 }
-
 
 html {
   -webkit-text-size-adjust: 100%;
   line-height: 1.15;
 }
+
 body {
   margin: 0;
-  font-family: "Ubuntu", "Ubuntu";
+  font-family: "Nunito Sans", sans-serif;
 }
+
 main {
   display: block;
 }
+
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
+
 hr {
   box-sizing: content-box;
   height: 0;
   overflow: visible;
 }
+
 pre {
-  font-family: "Ubuntu", "Ubuntu";
+  font-family: "Nunito Sans", sans-serif;
   font-size: 1em;
 }
+
 a {
   background-color: transparent;
 }
+
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
   -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
 }
+
 b,
 strong {
   font-weight: bolder;
 }
+
 code,
 kbd,
 samp {
-  font-family: "Ubuntu", "Ubuntu";
+  font-family: "Nunito Sans", sans-serif;
   font-size: 1em;
 }
+
 small {
   font-size: 80%;
 }
