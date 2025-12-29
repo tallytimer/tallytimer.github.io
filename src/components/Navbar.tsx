@@ -26,18 +26,18 @@ export default function Navbar() {
 
     return (
         <motion.nav
-            className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 px-6"
+            className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 px-4 md:px-6"
         >
             <motion.div
                 style={{
                     backgroundColor: isScrolled ? "var(--nav-bg)" : "transparent",
-                    backdropFilter: isScrolled ? "blur(16px)" : "none",
+                    backdropFilter: isScrolled ? "blur(20px)" : "none",
                     borderColor: isScrolled ? "var(--border-color)" : "transparent",
                 }}
-                className="max-w-6xl mx-auto rounded-[2rem] px-8 py-4 flex justify-between items-center border transition-all duration-300"
+                className="max-w-6xl mx-auto rounded-[2rem] px-6 md:px-8 py-3.5 flex justify-between items-center border transition-all duration-300 shadow-sm"
             >
-                <Link href="/" className="flex items-center gap-3 group">
-                    <div className="relative w-10 h-10 overflow-hidden rounded-xl shadow-lg transition-transform group-hover:rotate-6">
+                <Link href="/" className="flex items-center gap-3.5 group">
+                    <div className="relative w-9 h-9 md:w-10 md:h-10 overflow-hidden rounded-xl shadow-md transition-transform group-hover:rotate-6">
                         <Image
                             src="/images/appicon.png"
                             alt="TallyTimer Icon"
@@ -45,18 +45,18 @@ export default function Navbar() {
                             className="object-cover"
                         />
                     </div>
-                    <span className="text-2xl font-display text-[var(--foreground)] tracking-tighter">
+                    <span className="text-xl md:text-2xl font-display text-[var(--foreground)] tracking-tightest leading-none">
                         TallyTimer
                     </span>
                 </Link>
 
-                <div className="hidden md:flex items-center gap-10">
-                    <nav className="flex items-center gap-8 text-sm font-bold text-slate-400 font-display">
+                <div className="hidden md:flex items-center">
+                    <nav className="flex items-center gap-10 text-sm font-bold text-slate-400 font-display">
                         {navLinks.map((link) => (
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className="hover:text-primary-500 transition-colors tracking-wide"
+                                className="hover:text-primary-500 transition-colors tracking-tightest"
                             >
                                 {link.name}
                             </a>
@@ -67,9 +67,9 @@ export default function Navbar() {
                 {/* Mobile Menu Toggle */}
                 <button
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="md:hidden w-10 h-10 rounded-xl bg-[var(--card-bg)] border border-[var(--border-color)] flex items-center justify-center text-[var(--foreground)]"
+                    className="md:hidden w-10 h-10 rounded-2xl bg-[var(--card-bg)] border border-[var(--border-color)] flex items-center justify-center text-[var(--foreground)] shadow-sm active:scale-95 transition-transform"
                 >
-                    {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                    {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                 </button>
             </motion.div>
 
@@ -77,17 +77,17 @@ export default function Navbar() {
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-24 left-6 right-6 p-8 rounded-[2.5rem] bg-[var(--nav-bg)] backdrop-blur-2xl border border-[var(--border-color)] shadow-2xl md:hidden flex flex-col gap-6 items-center"
+                        initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                        className="absolute top-[5rem] left-4 right-4 p-8 rounded-[2.5rem] bg-[var(--nav-bg)] backdrop-blur-2xl border border-[var(--border-color)] shadow-2xl md:hidden flex flex-col gap-8 items-center"
                     >
                         {navLinks.map((link) => (
                             <a
                                 key={link.name}
                                 href={link.href}
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="text-2xl font-display text-[var(--foreground)] hover:text-primary-500 transition-colors"
+                                className="text-3xl font-display text-[var(--foreground)] hover:text-primary-500 transition-colors tracking-tight"
                             >
                                 {link.name}
                             </a>

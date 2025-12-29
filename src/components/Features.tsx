@@ -50,9 +50,9 @@ const features = [
 
 export default function Features() {
     return (
-        <section id="features" className="bg-[var(--background)] transition-colors duration-500">
+        <section id="features" className="bg-[var(--background)] transition-colors duration-500 py-20 md:py-32">
             <div className="max-w-6xl mx-auto px-6">
-                <div className="mb-16 max-w-2xl text-center md:text-left mx-auto md:mx-0">
+                <div className="mb-16 md:mb-20 max-w-3xl text-left">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -62,12 +62,12 @@ export default function Features() {
                         Essential features <br />
                         <span className="text-primary-500">for daily focus.</span>
                     </motion.h2>
-                    <p className="text-slate-500 text-lg font-medium leading-relaxed">
-                        TallyTimer is packed with features to help you stay organized without the clutter.
+                    <p className="text-slate-500 text-lg md:text-xl font-medium leading-relaxed max-w-2xl">
+                        TallyTimer is packed with features to help you stay organized without the clutter. Everything you need, exactly where you expect it.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                     {features.map((feature, index) => (
                         <motion.div
                             key={feature.title}
@@ -75,13 +75,13 @@ export default function Features() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.05 }}
-                            className={`p-8 rounded-[2.5rem] bg-[var(--card-bg)] border border-[var(--border-color)] shadow-sm hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 ${feature.span} group`}
+                            className={`p-8 md:p-10 rounded-[2.5rem] bg-[var(--card-bg)] border border-[var(--border-color)] shadow-sm hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 ${feature.span} group`}
                         >
-                            <div className={`w-12 h-12 rounded-2xl ${feature.color} mb-6 flex items-center justify-center transition-transform group-hover:scale-110 shadow-inner`}>
-                                <feature.icon className="w-6 h-6" />
+                            <div className={`w-14 h-14 rounded-2xl ${feature.color} mb-8 flex items-center justify-center transition-transform group-hover:scale-110 shadow-inner`}>
+                                <feature.icon className="w-7 h-7" />
                             </div>
-                            <h3 className="text-lg font-bold text-[var(--foreground)] mb-3">{feature.title}</h3>
-                            <p className="text-slate-500 text-sm font-medium leading-relaxed">
+                            <h3 className="text-xl font-bold text-[var(--foreground)] mb-4 tracking-tight">{feature.title}</h3>
+                            <p className="text-slate-500 text-[15px] md:text-base font-medium leading-relaxed">
                                 {feature.description}
                             </p>
                         </motion.div>

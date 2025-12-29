@@ -42,8 +42,8 @@ export default function Screenshots() {
     const [selectedScreenshot, setSelectedScreenshot] = useState<number | null>(null);
 
     return (
-        <section id="screenshots" className="bg-[var(--background)] overflow-hidden transition-colors duration-500">
-            <div className="max-w-6xl mx-auto px-6 mb-16 text-center md:text-left mx-auto md:mx-0">
+        <section id="screenshots" className="bg-[var(--background)] overflow-hidden transition-colors duration-500 py-20 md:py-32">
+            <div className="max-w-6xl mx-auto px-6 mb-16 md:mb-24 text-left">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +53,9 @@ export default function Screenshots() {
                     Sneak peek into <br />
                     <span className="text-primary-500">the interface.</span>
                 </motion.h2>
-                <p className="text-slate-500 text-xl md:text-2xl font-medium max-w-2xl mx-auto md:mx-0">Simple, clean, and distraction-free design. Click any screen to expand.</p>
+                <p className="text-slate-500 text-xl md:text-2xl font-medium max-w-2xl leading-relaxed">
+                    Simple, clean, and distraction-free design. A meticulous interface crafted for your most important moments.
+                </p>
             </div>
 
             <div className="relative flex overflow-hidden group/carousel py-8">

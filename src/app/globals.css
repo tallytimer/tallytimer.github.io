@@ -49,7 +49,10 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 400;
-  letter-spacing: -0.01em;
+}
+
+.tracking-tightest {
+  letter-spacing: -0.04em;
 }
 
 .text-gradient {
@@ -98,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 section {
-  @apply py-16 px-6 md:py-24;
+  @apply py-16 px-6 md:py-24 scroll-mt-24 md:scroll-mt-32;
 }
 
 .max-w-7xl {
@@ -124,7 +127,7 @@ section {
 
 /* Adaptive spacing for mobile */
 @media (max-width: 768px) {
-  h1 { @apply text-4xl leading-[1.1] tracking-tight; }
+  h1 { @apply text-4xl leading-[1.05] tracking-tight; }
   section { @apply py-14 px-4; }
   .btn-primary, .btn-secondary { @apply w-full; }
 }

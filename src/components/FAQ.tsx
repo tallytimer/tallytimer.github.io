@@ -23,11 +23,7 @@ const faqs = [
     },
     {
         question: "Will there be any subscription fees?",
-        answer: "Yes, we will be introducing subscriptions soon. However, all test users will receive a promo code for lifetime free access."
-    },
-    {
-        question: "How can I use the promo code for lifetime free access?",
-        answer: "All test users will receive an email with the promo code. Follow the instructions in the email to redeem your lifetime free access."
+        answer: "Yes, we will be introducing subscriptions soon. However, all beta testers and early adopters will receive a promo code for lifetime free access to premium features."
     },
 ];
 
@@ -40,17 +36,17 @@ const FAQItem = ({ faq, index }: { faq: typeof faqs[0], index: number }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
             viewport={{ once: true }}
-            className="mb-2 border border-slate-100 rounded-2xl overflow-hidden bg-white hover:border-slate-200 transition-colors"
+            className="mb-4 border border-[var(--border-color)] rounded-[2rem] overflow-hidden bg-[var(--card-bg)] hover:border-primary-500/30 transition-all duration-300 group"
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full p-6 flex items-center justify-between text-left group"
+                className="w-full p-6 md:p-8 flex items-center justify-between text-left group"
             >
-                <span className="text-xl font-display text-[#0F172A]">
+                <span className="text-xl md:text-2xl font-display text-[var(--foreground)] pr-8 tracking-tight">
                     {faq.question}
                 </span>
-                <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-blue-600 text-white' : 'bg-slate-50 text-slate-400'}`}>
-                    {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-[1rem] flex items-center justify-center transition-all duration-500 shrink-0 ${isOpen ? 'bg-primary-500 text-white rotate-180' : 'bg-[var(--background)] text-slate-400 group-hover:text-primary-500'}`}>
+                    {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                 </div>
             </button>
             <AnimatePresence>
@@ -59,9 +55,9 @@ const FAQItem = ({ faq, index }: { faq: typeof faqs[0], index: number }) => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
                     >
-                        <p className="px-6 pb-6 text-slate-500 text-lg font-medium leading-relaxed max-w-2xl">
+                        <p className="px-6 md:px-8 pb-8 text-slate-500 text-lg md:text-xl font-medium leading-relaxed max-w-3xl">
                             {faq.answer}
                         </p>
                     </motion.div>
@@ -73,17 +69,20 @@ const FAQItem = ({ faq, index }: { faq: typeof faqs[0], index: number }) => {
 
 export default function FAQ() {
     return (
-        <section id="faq" className="bg-slate-50/50">
+        <section id="faq" className="bg-[var(--background)] transition-colors duration-500 py-20 md:py-32">
             <div className="max-w-4xl mx-auto px-6">
-                <div className="text-left mb-16 max-w-2xl">
+                <div className="text-left mb-16 md:mb-20">
                     <motion.h2
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        className="text-5xl md:text-7xl font-display text-[#0F172A] mb-8 tracking-tight"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-5xl md:text-7xl font-display text-[var(--foreground)] mb-8 tracking-tight"
                     >
-                        Common <span className="text-blue-600">questions.</span>
+                        Common <span className="text-primary-500">questions.</span>
                     </motion.h2>
-                    <p className="text-slate-500 text-2xl font-medium">Everything you need to know about TallyTimer.</p>
+                    <p className="text-slate-500 text-xl md:text-2xl font-medium max-w-2xl leading-relaxed">
+                        Everything you need to know about TallyTimer. If you have more questions, we're here to help.
+                    </p>
                 </div>
 
                 <div className="space-y-4">

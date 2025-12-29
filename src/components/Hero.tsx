@@ -5,7 +5,7 @@ import { ArrowRight, Clock, Timer, Hourglass, Sparkles } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="relative pt-64 pb-24 md:pt-[22rem] md:pb-40 overflow-hidden bg-[var(--background)] transition-colors duration-500">
+        <section className="relative pt-44 pb-20 md:pt-[22rem] md:pb-40 overflow-hidden bg-[var(--background)] transition-colors duration-500">
             {/* Abstract background blobs */}
             <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-[120px] -z-10" />
             <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[100px] -z-10" />
@@ -17,35 +17,35 @@ export default function Hero() {
                         initial={{ opacity: 0, x: -40 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="flex-1 text-center lg:text-left z-10"
+                        className="flex-1 text-left z-10"
                     >
-                        <h1 className="text-6xl md:text-8xl lg:text-[100px] font-display leading-[1.0] md:leading-[0.9] mb-12 text-[var(--foreground)] tracking-tighter whitespace-pre-line">
-                            Count down <br className="hidden md:block" />
+                        <h1 className="text-5xl md:text-8xl lg:text-[100px] font-display leading-[1.0] md:leading-[0.9] mb-8 md:mb-12 text-[var(--foreground)] tracking-tighter">
+                            Count down <br />
                             <span className="text-primary-500 italic">to magic.</span>
                         </h1>
 
-                        <p className="text-lg md:text-xl text-slate-500 mb-14 max-w-xl leading-relaxed mx-auto lg:mx-0 font-medium">
+                        <p className="text-lg md:text-xl text-slate-500 mb-10 md:mb-14 max-w-xl leading-relaxed font-medium">
                             TallyTimer turns your most awaited moments into beautiful, interactive countdown shapes. Simple, minimal, and always in focus.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5">
+                        <div className="flex flex-col sm:flex-row items-center justify-start gap-4 md:gap-5">
                             <motion.a
                                 href="https://play.google.com/store/apps/details?id=com.faysal.tallytimer"
                                 target="_blank"
                                 whileHover={{ y: -5, scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="relative btn-primary px-10 py-5 text-lg group overflow-visible"
+                                className="relative btn-primary px-8 md:px-10 py-4 md:py-5 text-lg group overflow-visible w-full sm:w-auto"
                             >
                                 {/* Animated Border/Background Glow */}
                                 <div className="absolute -inset-[2px] bg-gradient-to-r from-blue-600 via-indigo-500 to-primary-500 rounded-2xl z-[-1] opacity-75 blur-sm animate-gradient-flow" />
 
-                                <span className="relative z-10 flex items-center gap-3">
+                                <span className="relative z-10 flex items-center justify-center gap-3">
                                     Get TallyTimer Free
-                                    <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
+                                    <ArrowRight className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:translate-x-1" />
                                 </span>
                             </motion.a>
 
-                            <a href="#features" className="btn-secondary px-10 py-5 text-lg flex items-center justify-center gap-3 group">
+                            <a href="#features" className="btn-secondary px-8 md:px-10 py-4 md:py-5 text-lg flex items-center justify-center gap-3 group w-full sm:w-auto">
                                 <Sparkles className="w-5 h-5 text-blue-500" />
                                 Explore Features
                             </a>
@@ -56,10 +56,10 @@ export default function Hero() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1, delay: 0.2 }}
-                        className="flex-1 relative flex items-center justify-center py-12 w-full max-w-[500px] lg:max-w-none"
+                        className="flex-1 relative flex items-center justify-center py-8 md:py-12 w-full max-w-[400px] md:max-w-[500px] lg:max-w-none"
                     >
                         {/* Abstract Timer Visuals */}
-                        <div className="relative w-full aspect-square max-w-[500px] flex items-center justify-center">
+                        <div className="relative w-full aspect-square flex items-center justify-center">
 
                             {/* Pulsing Timer Rings */}
                             <motion.div
@@ -74,7 +74,7 @@ export default function Hero() {
                             />
 
                             {/* Floating Countdown Shapes */}
-                            <div className="relative z-10 flex flex-col items-center scale-90 md:scale-100">
+                            <div className="relative z-10 flex flex-col items-center scale-75 sm:scale-90 md:scale-100">
                                 <motion.div
                                     animate={{ y: [0, -15, 0] }}
                                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -106,7 +106,7 @@ export default function Hero() {
                             </div>
 
                             {/* Orbiting Icons */}
-                            <div className="absolute inset-0 scale-90 md:scale-100">
+                            <div className="absolute inset-0 scale-75 sm:scale-90 md:scale-100">
                                 <motion.div
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 25, repeat: Infinity, ease: "linear" }}

@@ -1,28 +1,30 @@
 "use client";
 
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Heart } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="pt-20 pb-10 bg-white border-t border-slate-50">
+        <footer className="pt-24 pb-12 bg-[var(--background)] border-t border-[var(--border-color)] transition-colors duration-500">
             <div className="max-w-6xl mx-auto px-6">
-                <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 mb-16">
                     <div>
-                        <span className="text-3xl font-display text-[#0F172A] tracking-tighter">
+                        <span className="text-3xl font-display text-[var(--foreground)] tracking-tightest leading-none">
                             TallyTimer
                         </span>
-                        <p className="text-lg text-slate-400 font-medium mt-2">Beautiful countdowns for meaningful moments.</p>
+                        <p className="text-lg text-slate-500 font-medium mt-4 max-w-sm leading-relaxed">
+                            Beautiful countdowns meticulously crafted for your most meaningful moments.
+                        </p>
                     </div>
 
-                    <div className="flex items-center gap-8">
-                        <Link href="/privacy" className="text-sm font-bold text-slate-400 hover:text-blue-600 transition-colors">Privacy</Link>
-                        <Link href="/terms" className="text-sm font-bold text-slate-400 hover:text-blue-600 transition-colors">Terms</Link>
+                    <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
+                        <Link href="/privacy" className="text-sm font-bold text-slate-400 hover:text-primary-500 transition-colors uppercase tracking-widest">Privacy</Link>
+                        <Link href="/terms" className="text-sm font-bold text-slate-400 hover:text-primary-500 transition-colors uppercase tracking-widest">Terms</Link>
                         <a
                             href="https://fsfaysalcse.github.io/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-sm font-bold text-blue-600 px-5 py-2.5 bg-blue-50 rounded-xl hover:bg-blue-100 transition-all group"
+                            className="flex items-center gap-3 text-sm font-bold text-primary-500 px-6 py-3 bg-primary-500/5 rounded-2xl border border-primary-500/10 hover:bg-primary-500/10 transition-all group"
                         >
                             Contact Author
                             <ExternalLink className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -30,13 +32,13 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-slate-50 gap-4">
-                    <p className="text-xs font-bold text-slate-300 uppercase tracking-widest">
+                <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-[var(--border-color)] gap-6">
+                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest order-2 md:order-1">
                         © 2024 Faysal Hossain. All rights reserved.
                     </p>
-                    <div className="flex items-center gap-2">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-slate-300">Design from Dhaka with</span>
-                        <span className="text-blue-600">❤</span>
+                    <div className="flex items-center gap-3 order-1 md:order-2">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Design from Dhaka with</span>
+                        <Heart className="w-4 h-4 text-primary-500 fill-primary-500 animate-pulse" />
                     </div>
                 </div>
             </div>
