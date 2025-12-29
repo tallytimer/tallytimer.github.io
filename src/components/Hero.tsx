@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Clock, Timer, Hourglass, Sparkles } from "lucide-react";
+import { ArrowRight, Clock, Clock9, Timer, Hourglass, Sparkles } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="relative pt-44 pb-20 md:pt-[22rem] md:pb-40 overflow-hidden bg-[var(--background)] transition-colors duration-500">
+        <section className="relative pt-64 pb-20 md:pt-[22rem] md:pb-40 overflow-hidden bg-[var(--background)] transition-colors duration-500">
             {/* Abstract background blobs */}
             <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-[120px] -z-10" />
             <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[100px] -z-10" />
@@ -17,7 +17,7 @@ export default function Hero() {
                         initial={{ opacity: 0, x: -40 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="flex-1 text-left z-10"
+                        className="flex-1 text-left z-10 w-full"
                     >
                         <h1 className="text-5xl md:text-8xl lg:text-[100px] font-display leading-[1.0] md:leading-[0.9] mb-8 md:mb-12 text-[var(--foreground)] tracking-tighter">
                             Count down <br />

@@ -53,7 +53,7 @@ export default function HowToUse() {
                             className="relative group"
                         >
                             <div className="flex items-center gap-6 mb-8">
-                                <div className={`w-16 h-16 rounded-[1.5rem] ${step.color} shadow-xl shadow-primary-500/10 flex items-center justify-center relative z-10 transition-transform group-hover:scale-110`}>
+                                <div className={`w-16 h-16 rounded-2xl ${step.color} shadow-xl shadow-primary-500/10 flex items-center justify-center relative z-10 transition-transform group-hover:scale-110`}>
                                     <step.icon className="w-8 h-8 text-white" />
                                 </div>
                                 <div className="text-7xl font-display text-[var(--foreground)] opacity-[0.03] italic select-none absolute right-0 top-0 md:relative md:opacity-[0.08] md:right-auto md:top-auto">

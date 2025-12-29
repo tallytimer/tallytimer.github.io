@@ -36,7 +36,7 @@ const FAQItem = ({ faq, index }: { faq: typeof faqs[0], index: number }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
             viewport={{ once: true }}
-            className="mb-4 border border-[var(--border-color)] rounded-[2rem] overflow-hidden bg-[var(--card-bg)] hover:border-primary-500/30 transition-all duration-300 group"
+            className="mb-4 border border-[var(--border-color)] rounded-2xl overflow-hidden bg-[var(--card-bg)] hover:border-primary-500/30 transition-all duration-300 group"
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}

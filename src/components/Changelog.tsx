@@ -84,7 +84,7 @@ export default function Changelog() {
                                 <div className="hidden md:block w-[10%]" />
 
                                 <div className={`w-full md:w-[45%] pl-14 md:pl-0 mt-4 md:mt-0`}>
-                                    <div className="p-8 md:p-10 rounded-[2.5rem] bg-[var(--card-bg)] border border-[var(--border-color)] hover:shadow-2xl hover:shadow-primary-500/5 transition-all duration-500">
+                                    <div className="p-8 md:p-10 rounded-2xl bg-[var(--card-bg)] border border-[var(--border-color)] hover:shadow-2xl hover:shadow-primary-500/5 transition-all duration-500">
                                         <ul className="space-y-6">
                                             {ver.changes.map((change, j) => (
                                                 <li key={j} className="flex gap-4 text-slate-500 font-medium leading-relaxed text-[15px] md:text-base">

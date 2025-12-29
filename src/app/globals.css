@@ -101,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 section {
-  @apply py-16 px-6 md:py-24 scroll-mt-24 md:scroll-mt-32;
+  @apply py-16 px-6 md:py-24 scroll-mt-28 md:scroll-mt-36;
 }
 
 .max-w-7xl {
@@ -130,4 +130,11 @@ section {
   h1 { @apply text-4xl leading-[1.05] tracking-tight; }
   section { @apply py-14 px-4; }
   .btn-primary, .btn-secondary { @apply w-full; }
+}
+
+/* Super Responsiveness Tweaks */
+@media (max-width: 380px) {
+  h1 { @apply text-3xl; }
+  .p-8 { @apply p-6; }
+  .px-6 { @apply px-4; }
 }

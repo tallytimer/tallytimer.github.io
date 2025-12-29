@@ -27,7 +27,7 @@ const features = [
     },
     {
         title: "UPCOMING SYNC",
-        description: "Soon you can sync with Taylor's MyTimes and Google Calendar.",
+        description: "Soon you can sync with Google Calendar.",
         icon: Calendar,
         span: "col-span-1 md:col-span-2",
         color: "bg-emerald-500/10 text-emerald-500",
@@ -75,7 +75,7 @@ export default function Features() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.05 }}
-                            className={`p-8 md:p-10 rounded-[2.5rem] bg-[var(--card-bg)] border border-[var(--border-color)] shadow-sm hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 ${feature.span} group`}
+                            className={`p-8 md:p-10 rounded-2xl bg-[var(--card-bg)] border border-[var(--border-color)] shadow-sm hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 ${feature.span} group`}
                         >
                             <div className={`w-14 h-14 rounded-2xl ${feature.color} mb-8 flex items-center justify-center transition-transform group-hover:scale-110 shadow-inner`}>
                                 <feature.icon className="w-7 h-7" />

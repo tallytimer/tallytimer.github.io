@@ -68,7 +68,7 @@ export default function Screenshots() {
                         <div
                             key={i}
                             onClick={() => setSelectedScreenshot(i % screenshots.length)}
-                            className="relative w-[280px] h-[580px] md:w-[320px] md:h-[660px] rounded-[3.5rem] bg-[var(--card-bg)] border border-[var(--border-color)] overflow-hidden shadow-2xl hover:shadow-primary-500/20 transition-all duration-500 shrink-0 cursor-pointer group"
+                            className="relative w-[280px] h-[580px] md:w-[320px] md:h-[660px] rounded-[2rem] bg-[var(--card-bg)] border border-[var(--border-color)] overflow-hidden shadow-lg hover:shadow-primary-500/10 transition-all duration-500 shrink-0 cursor-pointer group"
                         >
                             <Image
                                 src={shot.src}
@@ -120,7 +120,7 @@ export default function Screenshots() {
                                 initial={{ scale: 0.9, y: 20 }}
                                 animate={{ scale: 1, y: 0 }}
                                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                                className="relative w-full h-[60vh] lg:h-[80vh] rounded-[3.5rem] overflow-hidden shadow-2xl border border-[var(--border-color)]"
+                                className="relative w-full h-[60vh] lg:h-[80vh] rounded-[2rem] overflow-hidden shadow-xl border border-[var(--border-color)]"
                             >
                                 <Image
                                     src={screenshots[selectedScreenshot].src}
