@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export const metadata: Metadata = {
   title: "TallyTimer - Master Your Time with Elegance",
@@ -31,8 +32,9 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Nova+Round&display=swap" rel="stylesheet" />
       </head>
       <body
-        className="antialiased bg-white text-[#0F172A] selection:bg-blue-500/10 font-sans"
+        className="antialiased selection:bg-blue-500/10 font-sans"
       >
+        <ThemeToggle />
         {children}
       </body>
     </html>

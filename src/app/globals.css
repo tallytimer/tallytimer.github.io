@@ -3,15 +3,37 @@
 @theme {
   --font-sans: "Google Sans Flex", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Nova Round", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
 }
 
 :root {
   --background: #FFFFFF;
   --foreground: #0F172A;
-  --primary: #3b82f6;
-  --primary-glow: rgba(59, 130, 246, 0.1);
   --card-bg: rgba(255, 255, 255, 0.8);
   --border-color: rgba(15, 23, 42, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --nav-bg: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme='dark'] {
+  --background: #050608;
+  --foreground: #F8FAFC;
+  --card-bg: rgba(15, 23, 42, 0.4);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(15, 23, 42, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --nav-bg: rgba(5, 6, 8, 0.8);
 }
 
 body {
@@ -21,6 +43,7 @@ body {
   overflow-x: hidden;
   font-size: 16px;
   line-height: 1.6;
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,12 +56,16 @@ h1, h2, h3, h4, h5, h6 {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600;
 }
 
+[data-theme='dark'] .text-gradient {
+  @apply from-blue-400 to-indigo-400;
+}
+
 .glass {
-  @apply backdrop-blur-xl bg-white/70 border border-slate-200/60 shadow-sm transition-all duration-300;
+  @apply backdrop-blur-xl bg-[var(--glass-bg)] border border-[var(--glass-border)] shadow-sm transition-all duration-300;
 }
 
 .glass:hover {
-  @apply border-slate-300/80 shadow-md;
+  @apply shadow-md;
 }
 
 @keyframes float {
@@ -50,19 +77,54 @@ h1, h2, h3, h4, h5, h6 {
   animation: float 5s ease-in-out infinite;
 }
 
+@keyframes border-glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.animate-border-glow {
+  animation: border-glow 3s ease-in-out infinite;
+}
+
+@keyframes rotate-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-flow {
+  background-size: 200% 200%;
+  animation: rotate-gradient 4s ease infinite;
+}
+
 section {
-  @apply py-24 px-6;
+  @apply py-16 px-6 md:py-24;
 }
 
 .max-w-7xl {
   @apply max-w-6xl mx-auto;
 }
 
-/* Custom button styles */
+/* Premium Button Redesign */
 .btn-primary {
-  @apply bg-[#0F172A] text-white px-8 py-4 rounded-2xl font-bold transition-all hover:bg-slate-800 active:scale-95;
+  @apply relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-bold transition-all duration-300 rounded-2xl bg-[#0F172A] text-white shadow-xl hover:shadow-blue-500/20 hover:-translate-y-1 active:scale-95;
+}
+
+[data-theme='dark'] .btn-primary {
+  @apply bg-white text-[#0F172A] hover:shadow-white/10;
 }
 
 .btn-secondary {
-  @apply bg-slate-100 text-[#0F172A] px-8 py-4 rounded-2xl font-bold transition-all hover:bg-slate-200 active:scale-95;
+  @apply inline-flex items-center justify-center px-8 py-4 font-bold transition-all duration-300 rounded-2xl bg-slate-100 text-[#0F172A] border border-slate-200 hover:bg-slate-200 active:scale-95;
+}
+
+[data-theme='dark'] .btn-secondary {
+  @apply bg-white/5 text-white border-white/10 hover:bg-white/10;
+}
+
+/* Adaptive spacing for mobile */
+@media (max-width: 768px) {
+  h1 { @apply text-4xl leading-[1.1] tracking-tight; }
+  section { @apply py-14 px-4; }
+  .btn-primary, .btn-secondary { @apply w-full; }
 }
