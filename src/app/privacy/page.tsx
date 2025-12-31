@@ -20,13 +20,13 @@ export default function PrivacyPage() {
                     >
                         <Link
                             href="/"
-                            className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 uppercase tracking-widest hover:text-blue-500 transition-colors mb-8"
+                            className="inline-flex items-center gap-2 text-sm font-bold text-primary-500 uppercase tracking-widest hover:text-primary-600 transition-colors mb-8"
                         >
                             <ChevronLeft className="w-4 h-4" />
                             Back to Home
                         </Link>
                         <h1 className="text-5xl md:text-7xl font-display text-[#0F172A] tracking-tight mb-4">
-                            Privacy <span className="text-blue-600">Policy.</span>
+                            Privacy <span className="text-primary-500">Policy.</span>
                         </h1>
                         <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Effective: July 11, 2024</p>
                     </motion.div>
@@ -62,11 +62,29 @@ export default function PrivacyPage() {
                                 { name: "Firebase Crashlytics", href: "https://firebase.google.com/support/privacy/" },
                             ].map((item) => (
                                 <li key={item.name} className="flex gap-4 items-center">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-                                    <a href={item.href} target="_blank" className="text-blue-600 hover:text-blue-500 transition-colors underline decoration-blue-600/20 underline-offset-4">{item.name}</a>
+                                    <div className="w-1.5 h-1.5 rounded-full bg-primary-500" />
+                                    <a href={item.href} target="_blank" className="text-primary-500 hover:text-primary-600 transition-colors underline decoration-primary-500/20 underline-offset-4">{item.name}</a>
                                 </li>
                             ))}
                         </ul>
+
+                        <h2 className="text-xl font-black text-[#0F172A] mt-12 mb-6">Calendar Permissions</h2>
+                        <p>
+                            To provide the event import feature, TallyTimer requests access to your device&apos;s calendar.
+                            This &quot;Read Calendar&quot; permission is strictly used to allow you to select and import existing
+                            events from your calendar into the app as countdowns. This processing happens locally on
+                            your device. We do not collect, store, or transmit your calendar data to any external
+                            servers.
+                        </p>
+
+                        <h2 className="text-xl font-black text-[#0F172A] mt-12 mb-6">Data Backup and Restore</h2>
+                        <p>
+                            TallyTimer offers a backup and restore feature to help you secure your event data. You can
+                            choose to back up your data to your local storage or a personal cloud storage account
+                            (e.g., Google Drive). These backups are encrypted and controlled entirely by you. We do
+                            not have access to your backup files or their contents unless you actively choose to restore
+                            them within the app. You are responsible for managing your backup files.
+                        </p>
 
                         <h2 className="text-xl font-black text-[#0F172A] mt-12 mb-6">Log Data</h2>
                         <p>
@@ -79,7 +97,7 @@ export default function PrivacyPage() {
                         <p>
                             Cookies are files with a small amount of data that are commonly used
                             as anonymous unique identifiers. These are sent to your browser from
-                            the websites that you visit and are stored on your device's internal
+                            the websites that you visit and are stored on your device&apos;s internal
                             memory.
                         </p>
 

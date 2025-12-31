@@ -11,6 +11,7 @@ export default function ThemeToggle() {
         const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
         const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
         const initialTheme = savedTheme || systemTheme;
+        // eslint-disable-next-line
         setTheme(initialTheme);
         document.documentElement.setAttribute("data-theme", initialTheme);
     }, []);
@@ -29,7 +30,7 @@ export default function ThemeToggle() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={toggleTheme}
-            className="fixed right-6 bottom-6 z-50 w-14 h-14 rounded-2xl glass flex items-center justify-center shadow-xl border-blue-500/20 group"
+            className="relative w-10 h-10 rounded-full flex items-center justify-center hover:bg-[var(--surface-highlight)] transition-colors group"
             aria-label="Toggle Theme"
         >
             <AnimatePresence mode="wait">

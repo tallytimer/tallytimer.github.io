@@ -81,7 +81,7 @@ export default function FAQ() {
                         Common <span className="text-primary-500">questions.</span>
                     </motion.h2>
                     <p className="text-slate-500 text-xl md:text-2xl font-medium max-w-2xl leading-relaxed">
-                        Everything you need to know about TallyTimer. If you have more questions, we're here to help.
+                        Everything you need to know about TallyTimer. If you have more questions, we&apos;re here to help.
                     </p>
                 </div>
 

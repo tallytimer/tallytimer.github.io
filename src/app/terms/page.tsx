@@ -20,13 +20,13 @@ export default function TermsPage() {
                     >
                         <Link
                             href="/"
-                            className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 uppercase tracking-widest hover:text-blue-500 transition-colors mb-8"
+                            className="inline-flex items-center gap-2 text-sm font-bold text-primary-500 uppercase tracking-widest hover:text-primary-600 transition-colors mb-8"
                         >
                             <ChevronLeft className="w-4 h-4" />
                             Back to Home
                         </Link>
                         <h1 className="text-5xl md:text-7xl font-display text-[#0F172A] tracking-tight mb-4">
-                            Terms of <span className="text-blue-600">Use.</span>
+                            Terms of <span className="text-primary-500">Use.</span>
                         </h1>
                         <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Effective: July 11, 2024</p>
                     </motion.div>
@@ -56,6 +56,22 @@ export default function TermsPage() {
                             keep your phone and access to the app secure.
                         </p>
 
+                        <h2 className="text-xl font-black text-[#0F172A] mt-12 mb-6">Service Usage (Calendar Import)</h2>
+                        <p>
+                            TallyTimer includes a feature to import events from your device&apos;s calendar. By using this
+                            feature, you grant the app permission to access your calendar data for the sole purpose of
+                            creating countdown events. You retain full ownership and responsibility for any content
+                            imported from your calendar.
+                        </p>
+
+                        <h2 className="text-xl font-black text-[#0F172A] mt-12 mb-6">Backup & Data Loss</h2>
+                        <p>
+                            While we provide tools for backing up and restoring your data, you are solely responsible
+                            for maintaining your backups. We are not liable for any data loss resulting from failure to
+                            create backups, loss of backup files, or failures of third-party cloud storage services where
+                            you choose to store your backups.
+                        </p>
+
                         <h2 className="text-2xl font-display text-[#0F172A] mt-12 mb-6">Third-Party Services</h2>
                         <p>
                             The app does use third-party services that declare their Terms and
@@ -68,8 +84,8 @@ export default function TermsPage() {
                                 { name: "Firebase Crashlytics", href: "https://firebase.google.com/terms/crashlytics" },
                             ].map((item) => (
                                 <li key={item.name} className="flex gap-4 items-center">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-                                    <a href={item.href} target="_blank" className="text-blue-600 hover:text-blue-500 transition-colors underline decoration-blue-600/20 underline-offset-4">{item.name}</a>
+                                    <div className="w-1.5 h-1.5 rounded-full bg-primary-500" />
+                                    <a href={item.href} target="_blank" className="text-primary-500 hover:text-primary-600 transition-colors underline decoration-primary-500/20 underline-offset-4">{item.name}</a>
                                 </li>
                             ))}
                         </ul>

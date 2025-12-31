@@ -34,7 +34,7 @@ export default function RootLayout({
       <body
         className="antialiased selection:bg-blue-500/10 font-sans"
       >
-        <ThemeToggle />
+
         {children}
       </body>
     </html>

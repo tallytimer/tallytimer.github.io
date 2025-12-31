@@ -6,21 +6,27 @@ import { Plus, Bell, Smartphone } from "lucide-react";
 const steps = [
     {
         title: "Create an Event",
-        description: "Set a title, date, and pick a beautiful background.",
+        description: "Add a title, date, time, and pick a beautiful background.",
         icon: Plus,
-        color: "bg-blue-500",
+        color: "bg-surface-highlight border border-white/5",
     },
     {
         title: "Set Reminders",
-        description: "Choose your timing and let us handle the alerts.",
+        description: "Choose exactly when you want to be notified.",
         icon: Bell,
-        color: "bg-indigo-500",
+        color: "bg-surface-highlight border border-white/5",
+    },
+    {
+        title: "Import or Backup",
+        description: "Bring in events from calendars or export your own safe file.",
+        icon: Smartphone, // Using Smartphone as generic 'data' icon or swap to Save/Calendar if preferred
+        color: "bg-surface-highlight border border-white/5",
     },
     {
         title: "Add Widgets",
-        description: "Place beautiful countdowns on your home screen.",
+        description: "Keep countdowns always visible on your home screen.",
         icon: Smartphone,
-        color: "bg-emerald-500",
+        color: "bg-surface-highlight border border-white/5",
     },
 ];
 
@@ -42,7 +48,7 @@ export default function HowToUse() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 md:gap-12">
                     {steps.map((step, index) => (
                         <motion.div
                             key={step.title}
@@ -53,8 +59,8 @@ export default function HowToUse() {
                             className="relative group"
                         >
                             <div className="flex items-center gap-6 mb-8">
-                                <div className={`w-16 h-16 rounded-2xl ${step.color} shadow-xl shadow-primary-500/10 flex items-center justify-center relative z-10 transition-transform group-hover:scale-110`}>
-                                    <step.icon className="w-8 h-8 text-white" />
+                                <div className={`w-16 h-16 rounded-2xl ${step.color} shadow-xl shadow-black/20 flex items-center justify-center relative z-10 transition-transform group-hover:scale-110 group-hover:border-orange-500/30`}>
+                                    <step.icon className="w-8 h-8 text-orange-500" />
                                 </div>
                                 <div className="text-7xl font-display text-[var(--foreground)] opacity-[0.03] italic select-none absolute right-0 top-0 md:relative md:opacity-[0.08] md:right-auto md:top-auto">
                                     0{index + 1}
