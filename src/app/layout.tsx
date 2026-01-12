@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ThemeToggle from "@/components/ThemeToggle";
+import { LocaleProvider } from "@/context/LocaleContext";
 
 export const metadata: Metadata = {
   title: "TallyTimer - Master Your Time with Elegance",
@@ -31,11 +31,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Nova+Round&display=swap" rel="stylesheet" />
       </head>
-      <body
-        className="antialiased selection:bg-blue-500/10 font-sans"
-      >
-
-        {children}
+      <body className="antialiased selection:bg-blue-500/10 font-sans">
+        <LocaleProvider>
+          {children}
+        </LocaleProvider>
       </body>
     </html>
   );

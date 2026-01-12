@@ -6,15 +6,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ArrowRight } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
-
-const navLinks = [
-    { name: "Features", href: "#features" },
-    { name: "Showcase", href: "#showcase" },
-];
+import LanguageSelector from "./LanguageSelector";
+import { useLocale } from "@/context/LocaleContext";
 
 export default function Navbar() {
+    const { t } = useLocale();
     const [scrolled, setScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const navLinks = [
+        { name: t.nav.features, href: "#features" },
+        { name: t.nav.showcase, href: "#showcase" },
+    ];
 
     useEffect(() => {
         const handleScroll = () => {
@@ -33,17 +36,15 @@ export default function Navbar() {
                 className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-auto md:min-w-[500px]"
             >
                 <div className={`
-                    rounded-full px-6 py-3 flex items-center justify-between gap-8
+                    rounded-full px-5 py-2.5 flex items-center justify-between gap-6
                     bg-[var(--surface)]/80 backdrop-blur-xl border border-[var(--border-color)]
                     shadow-lg shadow-black/5 transition-all duration-300
                     ${scrolled ? "scale-100" : "scale-[1.02]"}
                     will-change-transform translate-z-0
                 `}>
 
-
-                    {/* Brand */}
                     <Link href="/" className="flex items-center gap-2 group">
-                        <div className="relative w-8 h-8 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow rounded-lg overflow-hidden">
+                        <div className="relative w-7 h-7 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow rounded-lg overflow-hidden">
                             <Image
                                 src="/images/logo.png"
                                 alt="TallyTimer Logo"
@@ -51,11 +52,10 @@ export default function Navbar() {
                                 className="object-cover"
                             />
                         </div>
-                        <span className="font-display font-bold text-[var(--foreground)] text-lg">TallyTimer</span>
+                        <span className="font-display font-bold text-[var(--foreground)] text-base">TallyTimer</span>
                     </Link>
 
-                    {/* Desktop Links */}
-                    <div className="hidden md:flex items-center gap-6">
+                    <div className="hidden md:flex items-center gap-5">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
@@ -67,29 +67,28 @@ export default function Navbar() {
                         ))}
                     </div>
 
-                    {/* Actions */}
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
+                        <LanguageSelector />
                         <ThemeToggle />
                         <a
                             href="https://play.google.com/store/apps/details?id=com.faysal.tallytimer"
                             target="_blank"
-                            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500 text-white text-sm font-bold shadow-lg shadow-orange-500/20 hover:bg-orange-600 hover:shadow-orange-500/30 transition-all"
+                            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-orange-500 text-white text-sm font-bold shadow-lg shadow-orange-500/20 hover:bg-orange-600 hover:shadow-orange-500/30 transition-all"
                         >
-                            Get App
+                            {t.nav.download}
                             <ArrowRight className="w-3 h-3" />
                         </a>
                         <button
                             className="md:hidden p-2 text-[var(--foreground)]"
                             onClick={() => setIsMobileMenuOpen(true)}
                         >
-                            <Menu className="w-6 h-6" />
+                            <Menu className="w-5 h-5" />
                         </button>
                     </div>
 
                 </div>
             </motion.nav>
 
-            {/* Mobile Menu Overlay */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
@@ -101,12 +100,12 @@ export default function Navbar() {
                         <div className="flex flex-col h-full p-8 relative">
                             <button
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="absolute top-8 right-8 w-12 h-12 rounded-full bg-[var(--surface-highlight)] flex items-center justify-center"
+                                className="absolute top-8 right-8 w-10 h-10 rounded-full bg-[var(--surface-highlight)] flex items-center justify-center"
                             >
-                                <X className="w-6 h-6 text-[var(--foreground)]" />
+                                <X className="w-5 h-5 text-[var(--foreground)]" />
                             </button>
 
-                            <div className="flex flex-col gap-8 mt-20">
+                            <div className="flex flex-col gap-6 mt-16">
                                 {navLinks.map((link, i) => (
                                     <motion.a
                                         key={link.name}
@@ -115,7 +114,7 @@ export default function Navbar() {
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: i * 0.1 }}
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className="text-4xl font-display text-[var(--foreground)]"
+                                        className="text-3xl font-display text-[var(--foreground)]"
                                     >
                                         {link.name}
                                     </motion.a>

@@ -1,88 +1,79 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Plus, Bell, Smartphone } from "lucide-react";
-
-const steps = [
-    {
-        title: "Create an Event",
-        description: "Add a title, date, time, and pick a beautiful background.",
-        icon: Plus,
-        color: "bg-surface-highlight border border-white/5",
-    },
-    {
-        title: "Set Reminders",
-        description: "Choose exactly when you want to be notified.",
-        icon: Bell,
-        color: "bg-surface-highlight border border-white/5",
-    },
-    {
-        title: "Import or Backup",
-        description: "Bring in events from calendars or export your own safe file.",
-        icon: Smartphone, // Using Smartphone as generic 'data' icon or swap to Save/Calendar if preferred
-        color: "bg-surface-highlight border border-white/5",
-    },
-    {
-        title: "Add Widgets",
-        description: "Keep countdowns always visible on your home screen.",
-        icon: Smartphone,
-        color: "bg-surface-highlight border border-white/5",
-    },
-];
+import { Plus, Bell, Smartphone, Save } from "lucide-react";
+import { useLocale } from "@/context/LocaleContext";
 
 export default function HowToUse() {
+    const { t } = useLocale();
+
+    const steps = [
+        {
+            title: t.howTo.step1.title,
+            description: t.howTo.step1.description,
+            icon: Plus,
+        },
+        {
+            title: t.howTo.step2.title,
+            description: t.howTo.step2.description,
+            icon: Bell,
+        },
+        {
+            title: t.howTo.step3.title,
+            description: t.howTo.step3.description,
+            icon: Save,
+        },
+        {
+            title: t.howTo.step4.title,
+            description: t.howTo.step4.description,
+            icon: Smartphone,
+        },
+    ];
+
     return (
-        <section id="how-it-works" className="py-24 md:py-32 bg-[var(--background)] relative overflow-hidden transition-colors duration-500">
+        <section id="how-it-works" className="py-20 md:py-24 bg-[var(--background)] relative overflow-hidden">
             <div className="max-w-6xl mx-auto px-6 relative z-10">
-                <div className="text-left mb-20 max-w-2xl">
+                <div className="text-left mb-12 md:mb-16 max-w-2xl">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-5xl md:text-7xl font-display text-[var(--foreground)] mb-8 tracking-tight"
+                        className="text-4xl md:text-6xl font-display text-[var(--foreground)] mb-4 tracking-tight"
                     >
-                        How it <span className="text-primary-500">works.</span>
+                        {t.howTo.title} <span className="text-gradient-primary">{t.howTo.titleHighlight}</span>
                     </motion.h2>
-                    <p className="text-slate-500 text-xl md:text-2xl font-medium leading-relaxed">
-                        Three simple steps to stay ahead of your schedule. Designed to be effortless.
+                    <p className="text-slate-500 text-lg md:text-xl font-medium leading-relaxed">
+                        {t.howTo.subtitle}
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 md:gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                     {steps.map((step, index) => (
                         <motion.div
-                            key={step.title}
+                            key={index}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
                             className="relative group"
                         >
-                            <div className="flex items-center gap-6 mb-8">
-                                <div className={`w-16 h-16 rounded-2xl ${step.color} shadow-xl shadow-black/20 flex items-center justify-center relative z-10 transition-transform group-hover:scale-110 group-hover:border-orange-500/30`}>
-                                    <step.icon className="w-8 h-8 text-orange-500" />
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="w-12 h-12 rounded-xl bg-[var(--surface-highlight)] border border-white/5 shadow-xl flex items-center justify-center relative z-10 transition-transform group-hover:scale-105 group-hover:border-orange-500/30">
+                                    <step.icon className="w-5 h-5 text-orange-500" />
                                 </div>
-                                <div className="text-7xl font-display text-[var(--foreground)] opacity-[0.03] italic select-none absolute right-0 top-0 md:relative md:opacity-[0.08] md:right-auto md:top-auto">
+                                <div className="text-5xl font-display text-[var(--foreground)] opacity-[0.05] italic select-none">
                                     0{index + 1}
                                 </div>
                             </div>
 
-                            <h3 className="text-2xl font-display text-[var(--foreground)] mb-4 tracking-tight">{step.title}</h3>
-                            <p className="text-slate-500 text-lg font-medium leading-relaxed">
+                            <h3 className="text-xl font-display text-[var(--foreground)] mb-2 tracking-tight">{step.title}</h3>
+                            <p className="text-slate-500 text-sm md:text-base font-medium leading-relaxed">
                                 {step.description}
                             </p>
-
-                            {/* Connector line for desktop */}
-                            {index < steps.length - 1 && (
-                                <div className="hidden lg:block absolute top-8 left-[calc(100%+2rem)] w-[calc(100%-4rem)] h-[1px] bg-slate-200/50" />
-                            )}
                         </motion.div>
                     ))}
                 </div>
             </div>
-
-            {/* Background Accent */}
-            <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary-500/5 to-transparent -z-10" />
         </section>
     );
 }
