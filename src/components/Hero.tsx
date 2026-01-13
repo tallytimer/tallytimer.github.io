@@ -101,34 +101,7 @@ export default function Hero() {
         <section ref={containerRef} className="relative py-24 md:py-32 overflow-hidden flex items-center justify-center flex-col">
 
             {/* Background Countdown - The Core Focus */}
-            <motion.div
-                animate={{
-                    y: [0, -10, 0],
-                    rotate: [0, 0.5, 0]
-                }}
-                transition={{
-                    duration: 15,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                }}
-                className="absolute inset-0 flex items-center justify-center opacity-[0.02] select-none pointer-events-none overflow-hidden"
-            >
-                <div className="flex gap-4 md:gap-8 transform scale-110 md:scale-150">
-                    {[
-                        { label: "DAYS" },
-                        { label: "HOURS" },
-                        { label: "MINS" },
-                        { label: "SECS" },
-                    ].map((item, i) => (
-                        <div key={i} className="flex flex-col items-center">
-                            <span className="font-display font-bold text-7xl md:text-[8rem] leading-none tracking-tighter">
-                                00
-                            </span>
-                            <span className="text-[10px] md:text-sm font-bold tracking-[0.3em] mt-2 opacity-50">{item.label}</span>
-                        </div>
-                    ))}
-                </div>
-            </motion.div>
+            <AnimatedCountdownBackground />
 
             {/* Premium Background Effects */}
             <div className="absolute inset-0 pointer-events-none -z-10">
@@ -206,17 +179,18 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="flex flex-col sm:flex-row items-center gap-4"
                 >
-                    <a href="https://play.google.com/store/apps/details?id=com.faysal.tallytimer" target="_blank" className="btn-premium">
-                        <span className="flex items-center gap-2">
-                            {t.hero.downloadBtn}
-                            <ArrowRight className="w-4 h-4" />
-                        </span>
+                    <a
+                        href="https://play.google.com/store/apps/details?id=com.faysal.tallytimer"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-transform hover:scale-105 active:scale-95 duration-300"
+                    >
+                        <img
+                            src="/images/google-play-badge.png"
+                            alt="Get it on Google Play"
+                            className="h-16 md:h-20 w-auto"
+                        />
                     </a>
-
-                    <button className="px-8 py-4 rounded-full font-bold text-[var(--foreground)] bg-white/5 hover:bg-white/10 transition-all flex items-center gap-2 text-sm border border-white/5 backdrop-blur-md">
-                        <Sparkles className="w-4 h-4 text-orange-500" />
-                        {t.hero.exploreBtn}
-                    </button>
                 </motion.div>
             </div>
         </section>
