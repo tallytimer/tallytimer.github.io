@@ -65,9 +65,9 @@ export default function Features() {
     ];
 
     return (
-        <section id="features" className="py-32 md:py-48 relative z-10">
+        <section id="features" className="py-24 md:py-32 relative z-10">
             {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-orange-500/5 to-transparent blur-[120px] rounded-full pointer-events-none -z-10" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-orange-500/5 to-transparent blur-[120px] rounded-full pointer-events-none -z-10" />
 
             <div className="max-w-7xl mx-auto px-6">
 
@@ -76,11 +76,11 @@ export default function Features() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mb-20 text-center max-w-3xl mx-auto"
+                    className="mb-16 md:mb-20 text-center max-w-3xl mx-auto"
                 >
                     <span className="badge-premium mb-6 inline-block">Features</span>
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-display text-[var(--foreground)] mb-8 tracking-tight break-words">{t.features.title}</h2>
-                    <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+                    <h2 className="text-4xl md:text-6xl font-display text-[var(--foreground)] mb-6 tracking-tight break-words">{t.features.title}</h2>
+                    <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto opacity-80">
                         {t.features.subtitle}
                     </p>
                 </motion.div>
@@ -94,23 +94,23 @@ export default function Features() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.08 }}
-                            className={`glass-card p-8 lg:p-10 flex flex-col justify-between min-h-[320px] group shadow-premium ${card.borderGlow}`}
+                            className={`glass-card p-6 md:p-8 flex flex-col justify-between min-h-[300px] group shadow-premium ${card.borderGlow}`}
                         >
                             <div className="flex justify-between items-start mb-6">
-                                <div className={`p-4 ${card.bg} rounded-2xl ${card.color} group-hover:scale-110 transition-transform duration-500`}>
+                                <div className={`p-3.5 ${card.bg} rounded-2xl ${card.color} group-hover:scale-110 transition-transform duration-500`}>
                                     {typeof card.icon === "string" ? (
-                                        <div className="w-7 h-7 border-2 border-current rounded-lg flex items-center justify-center">
+                                        <div className="w-6 h-6 border-2 border-current rounded-lg flex items-center justify-center">
                                             <span className="text-xs font-bold">{card.icon}</span>
                                         </div>
                                     ) : (
-                                        <card.icon className="w-7 h-7" />
+                                        <card.icon className="w-6 h-6" />
                                     )}
                                 </div>
-                                <span className="px-3 py-1.5 bg-white/5 rounded-full text-[10px] font-bold uppercase tracking-widest text-slate-400 border border-white/10">{card.tag}</span>
+                                <span className="px-2.5 py-1 bg-white/5 rounded-full text-[9px] font-bold uppercase tracking-widest text-slate-500 border border-white/5">{card.tag}</span>
                             </div>
-                            <div className="space-y-4 relative z-10 flex-grow flex flex-col justify-end">
-                                <h3 className="text-2xl md:text-3xl font-display text-[var(--foreground)] tracking-tight">{card.title}</h3>
-                                <p className="text-slate-400 text-base md:text-lg leading-relaxed">
+                            <div className="space-y-3 relative z-10 flex-grow flex flex-col justify-end">
+                                <h3 className="text-xl md:text-2xl font-display text-[var(--foreground)] tracking-tight">{card.title}</h3>
+                                <p className="text-slate-400 text-sm md:text-base leading-relaxed opacity-90">
                                     {card.description}
                                 </p>
                             </div>

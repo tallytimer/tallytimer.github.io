@@ -18,29 +18,29 @@
 }
 
 :root {
-  --background: #050508;
-  --foreground: #F8FAFC;
-  --surface: #0a0a0f;
-  --surface-highlight: #111116;
-  --border-color: rgba(255, 255, 255, 0.04);
-  --primary-glow: rgba(249, 115, 22, 0.25);
+  --background: #0a0b0d;
+  --foreground: #f1f5f9;
+  --surface: #111418;
+  --surface-highlight: #1a1e24;
+  --border-color: rgba(255, 255, 255, 0.03);
+  --primary-glow: rgba(249, 115, 22, 0.1);
 
-  --card-bg: rgba(10, 10, 15, 0.8);
-  --card-border: rgba(255, 255, 255, 0.05);
-  --card-hover-border: rgba(249, 115, 22, 0.5);
+  --card-bg: rgba(17, 20, 24, 0.4);
+  --card-border: rgba(255, 255, 255, 0.04);
+  --card-hover-border: rgba(249, 115, 22, 0.2);
 }
 
 [data-theme='light'] {
-  --background: #FAFAFA;
-  --foreground: #0F172A;
-  --surface: #FFFFFF;
-  --surface-highlight: #F1F5F9;
-  --border-color: rgba(0, 0, 0, 0.06);
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --surface: #ffffff;
+  --surface-highlight: #f1f5f9;
+  --border-color: rgba(0, 0, 0, 0.05);
   --primary-glow: rgba(249, 115, 22, 0.1);
 
-  --card-bg: rgba(255, 255, 255, 0.9);
-  --card-border: rgba(0, 0, 0, 0.06);
-  --card-hover-border: rgba(249, 115, 22, 0.3);
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(0, 0, 0, 0.05);
+  --card-hover-border: rgba(249, 115, 22, 0.2);
 }
 
 body {
@@ -79,21 +79,16 @@ body {
 /* Premium Glassmorphism Card */
 .glass-card {
   @apply relative overflow-hidden rounded-3xl border transition-all duration-500;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  background: var(--card-bg);
   border-color: var(--card-border);
-  backdrop-filter: blur(40px);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
-    0 25px 60px -15px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 }
 
 .glass-card:hover {
   border-color: var(--card-hover-border);
-  box-shadow:
-    0 0 0 1px rgba(249, 115, 22, 0.1) inset,
-    0 35px 80px -15px rgba(0, 0, 0, 0.8),
-    0 0 50px -10px var(--primary-glow);
-  transform: translateY(-6px);
+  background: rgba(249, 115, 22, 0.02);
+  transform: translateY(-4px);
 }
 
 /* Bento Card Utility */
@@ -101,21 +96,23 @@ body {
   @apply relative overflow-hidden rounded-3xl border transition-all duration-500;
   background: var(--card-bg);
   border-color: var(--card-border);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 }
 
-.bento-card:hover {
-  border-color: var(--card-hover-border);
-  box-shadow: 0 30px 70px -12px var(--primary-glow), 0 20px 50px -12px rgba(0, 0, 0, 0.6);
-  transform: translateY(-6px);
-}
-
+/* Shadow System - Adjusted for Realism */
 .shadow-premium {
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
-    0 35px 70px -15px rgba(0, 0, 0, 0.9),
-    0 0 50px -10px var(--primary-glow);
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1),
+    0 12px 24px -6px rgba(0, 0, 0, 0.2);
+}
+
+.shadow-premium:hover {
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1),
+    0 20px 25px -5px rgba(0, 0, 0, 0.25);
 }
 
 /* Premium Glow Effects */
@@ -227,17 +224,14 @@ body {
 /* Premium Button */
 .btn-premium {
   @apply relative inline-flex items-center justify-center px-8 py-4 rounded-full font-bold text-white overflow-hidden transition-all duration-300;
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #dc2626 100%);
-  box-shadow:
-    0 10px 40px -5px rgba(249, 115, 22, 0.5),
-    0 15px 30px -10px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  box-shadow: 0 4px 12px -2px rgba(249, 115, 22, 0.3);
 }
 
 .btn-premium:hover {
-  transform: scale(1.04) translateY(-3px);
-  box-shadow:
-    0 20px 60px -5px rgba(249, 115, 22, 0.7),
-    0 25px 45px -10px rgba(0, 0, 0, 0.7);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(249, 115, 22, 0.4);
+  filter: brightness(1.05);
 }
 
 .btn-premium:active {
@@ -246,29 +240,25 @@ body {
 
 /* Premium Badge */
 .badge-premium {
-  @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em];
-  background: linear-gradient(135deg, rgba(249, 115, 22, 0.08) 0%, rgba(249, 115, 22, 0.03) 100%);
-  border: 1px solid rgba(249, 115, 22, 0.15);
-  color: rgba(251, 146, 60, 0.9);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
+  @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.1em];
+  background: rgba(249, 115, 22, 0.05);
+  border: 1px solid rgba(249, 115, 22, 0.1);
+  color: #fb923c;
 }
 
 /* Feature Pill */
 .feature-pill {
-  @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest;
-  background: rgba(255, 255, 255, 0.02);
+  @apply inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider;
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.6);
-  color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  color: rgba(255, 255, 255, 0.6);
   transition: all 0.3s ease;
 }
 
 .feature-pill:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(249, 115, 22, 0.2);
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
 

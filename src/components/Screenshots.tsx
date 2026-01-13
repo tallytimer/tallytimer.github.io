@@ -19,21 +19,21 @@ export default function Screenshots() {
     const { t } = useLocale();
 
     return (
-        <section className="py-32 md:py-48 overflow-hidden bg-[var(--background)] relative flex flex-col items-center">
+        <section className="py-24 md:py-32 overflow-hidden bg-[var(--background)] relative flex flex-col items-center">
             {/* Background Accent */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-orange-500/5 to-transparent blur-[120px] rounded-full pointer-events-none -z-10" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-orange-500/5 to-transparent blur-[120px] rounded-full pointer-events-none -z-10" />
 
-            <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
+            <div className="max-w-7xl mx-auto px-6 mb-16 md:mb-20 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
                     <span className="badge-premium mb-6 inline-block">Interface</span>
-                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-display text-[var(--foreground)] mb-8 tracking-tighter">
+                    <h2 className="text-4xl md:text-6xl font-display text-[var(--foreground)] mb-6 tracking-tight">
                         {t.screenshots.title}
                     </h2>
-                    <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto font-medium">
+                    <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto font-medium opacity-80">
                         {t.screenshots.subtitle}
                     </p>
                 </motion.div>

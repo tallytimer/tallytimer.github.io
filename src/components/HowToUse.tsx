@@ -43,22 +43,22 @@ export default function HowToUse() {
     ];
 
     return (
-        <section id="how-it-works" className="py-32 md:py-48 bg-[var(--background)]">
+        <section id="how-it-works" className="py-24 md:py-32 bg-[var(--background)]">
             {/* Background Accent */}
-            <div className="absolute left-0 top-1/2 w-[400px] h-[400px] bg-gradient-radial from-blue-500/5 to-transparent blur-[80px] rounded-full pointer-events-none -z-10" />
+            <div className="absolute left-0 top-1/2 w-[300px] h-[300px] bg-gradient-radial from-blue-500/5 to-transparent blur-[80px] rounded-full pointer-events-none -z-10" />
 
             <div className="max-w-7xl mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-24"
+                    className="text-center mb-16 md:mb-20"
                 >
                     <span className="badge-premium mb-6 inline-block">Simple Steps</span>
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-display text-[var(--foreground)] mb-8 tracking-tight">
+                    <h2 className="text-4xl md:text-6xl font-display text-[var(--foreground)] mb-6 tracking-tight">
                         {t.howTo.title} <span className="text-gradient-primary">{t.howTo.titleHighlight}</span>
                     </h2>
-                    <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed opacity-80">
                         {t.howTo.subtitle}
                     </p>
                 </motion.div>
@@ -71,18 +71,18 @@ export default function HowToUse() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="glass-card p-8 flex flex-col items-center text-center group relative shadow-premium"
+                            className="glass-card p-6 md:p-8 flex flex-col items-center text-center group relative shadow-premium"
                         >
                             {/* Step Number */}
-                            <span className="absolute top-4 right-4 text-5xl font-display font-bold text-white/5">{step.num}</span>
+                            <span className="absolute top-4 right-4 text-4xl font-display font-bold text-white/5">{step.num}</span>
 
-                            <div className={`p-4 ${step.bg} rounded-2xl ${step.color} mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                                <step.icon className="w-10 h-10" />
+                            <div className={`p-3.5 ${step.bg} rounded-2xl ${step.color} mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                                <step.icon className="w-8 h-8" />
                             </div>
-                            <h3 className="text-xl md:text-2xl font-display text-[var(--foreground)] mb-4 tracking-tight">
+                            <h3 className="text-xl md:text-2xl font-display text-[var(--foreground)] mb-3 tracking-tight">
                                 {step.title}
                             </h3>
-                            <p className="text-slate-400 text-sm md:text-base leading-relaxed">
+                            <p className="text-slate-400 text-sm md:text-base leading-relaxed opacity-90">
                                 {step.description}
                             </p>
                         </motion.div>
