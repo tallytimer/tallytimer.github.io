@@ -94,7 +94,7 @@ export default function Features() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.08 }}
-                            className={`glass-card p-8 lg:p-10 flex flex-col justify-between min-h-[320px] group ${card.borderGlow}`}
+                            className={`glass-card p-8 lg:p-10 flex flex-col justify-between min-h-[320px] group shadow-premium ${card.borderGlow}`}
                         >
                             <div className="flex justify-between items-start mb-6">
                                 <div className={`p-4 ${card.bg} rounded-2xl ${card.color} group-hover:scale-110 transition-transform duration-500`}>

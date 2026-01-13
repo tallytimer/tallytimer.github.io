@@ -14,7 +14,7 @@ const FAQItem = ({ question, answer, index }: { question: string, answer: string
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
             viewport={{ once: true }}
-            className="mb-4 glass-card overflow-hidden group"
+            className="mb-4 glass-card overflow-hidden group shadow-premium"
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}

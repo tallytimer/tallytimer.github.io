@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Calendar, Bell, CheckSquare, Link2, StickyNote } from "lucide-react";
+import { ArrowRight, Sparkles, Calendar, Bell, CheckSquare, Link2, StickyNote, Globe } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import { useLocale } from "@/context/LocaleContext";
 
@@ -22,7 +22,7 @@ const features = [
     { icon: StickyNote, label: "Notes" },
 ];
 
-function AnimatedCountdown() {
+function AnimatedCountdownBackground() {
     const [days, setDays] = useState(42);
     const [hours, setHours] = useState(8);
     const [mins, setMins] = useState(32);
@@ -54,28 +54,33 @@ function AnimatedCountdown() {
     }, []);
 
     return (
-        <div className="flex items-center justify-center gap-3 md:gap-6">
-            {[
-                { value: days, label: "Days" },
-                { value: hours, label: "Hours" },
-                { value: mins, label: "Mins" },
-                { value: secs, label: "Secs" },
-            ].map((item, i) => (
-                <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5 + i * 0.1 }}
-                    className="flex flex-col items-center"
-                >
-                    <div className="w-16 h-16 md:w-24 md:h-24 glass-card flex items-center justify-center">
-                        <span className="countdown-digit text-3xl md:text-5xl">
+        <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] select-none pointer-events-none overflow-hidden">
+            <motion.div
+                animate={{
+                    y: [0, -20, 0],
+                    rotate: [0, 1, 0]
+                }}
+                transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                }}
+                className="flex gap-8 md:gap-16 transform scale-150 md:scale-[2.5]"
+            >
+                {[
+                    { value: days, label: "DAYS" },
+                    { value: hours, label: "HOURS" },
+                    { value: mins, label: "MINS" },
+                    { value: secs, label: "SECS" },
+                ].map((item, i) => (
+                    <div key={i} className="flex flex-col items-center">
+                        <span className="font-display font-bold text-8xl md:text-[12rem] leading-none tracking-tighter">
                             {String(item.value).padStart(2, '0')}
                         </span>
+                        <span className="text-sm md:text-xl font-bold tracking-[0.5em] mt-4 opacity-50">{item.label}</span>
                     </div>
-                    <span className="countdown-label mt-2">{item.label}</span>
-                </motion.div>
-            ))}
+                ))}
+            </motion.div>
         </div>
     );
 }
@@ -88,65 +93,74 @@ export default function Hero() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentLangIndex((prev) => (prev + 1) % languages.length);
-        }, 2500);
+        }, 3000);
         return () => clearInterval(interval);
     }, []);
 
     return (
         <section ref={containerRef} className="relative min-h-screen pt-32 md:pt-40 pb-20 md:pb-32 overflow-hidden flex items-center justify-center flex-col">
 
+            {/* Background Countdown - The Core Focus */}
+            <AnimatedCountdownBackground />
+
             {/* Premium Background Effects */}
             <div className="absolute inset-0 pointer-events-none -z-10">
-                {/* Main Glow */}
-                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-orange-500/20 via-orange-500/5 to-transparent blur-[100px] rounded-full" />
-                {/* Secondary Glow */}
-                <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-gradient-radial from-purple-500/10 to-transparent blur-[80px] rounded-full" />
-                <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-gradient-radial from-blue-500/10 to-transparent blur-[60px] rounded-full" />
+                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-orange-500/10 via-orange-500/5 to-transparent blur-[120px] rounded-full" />
+                <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-gradient-radial from-purple-500/5 to-transparent blur-[100px] rounded-full" />
             </div>
 
             <div className="max-w-7xl mx-auto px-6 w-full flex flex-col items-center text-center z-10">
 
-                {/* Language Badge Animation */}
+                {/* Available in 6 Languages Badge */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-6"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8 }}
+                    className="mb-8"
                 >
-                    <div className="badge-premium">
-                        <motion.span
-                            key={currentLangIndex}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            className="text-lg"
-                        >
-                            {languages[currentLangIndex].flag}
-                        </motion.span>
-                        <span>Available in {languages.length} Languages</span>
+                    <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-xl shadow-premium">
+                        <div className="flex -space-x-2">
+                            {languages.slice(0, 3).map((l, i) => (
+                                <span key={i} className="w-6 h-6 rounded-full border-2 border-[var(--background)] bg-slate-800 flex items-center justify-center text-xs shadow-lg z-[3-i]">
+                                    {l.flag}
+                                </span>
+                            ))}
+                            <div className="w-6 h-6 rounded-full border-2 border-[var(--background)] bg-orange-500 flex items-center justify-center text-[10px] font-bold text-white shadow-lg z-0">
+                                +3
+                            </div>
+                        </div>
+                        <div className="h-4 w-px bg-white/10 mx-1" />
+                        <div className="flex items-center gap-2">
+                            <span className="text-xs font-bold text-slate-300 uppercase tracking-widest">Available in</span>
+                            <motion.span
+                                key={currentLangIndex}
+                                initial={{ opacity: 0, x: 5 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                className="text-xs font-bold text-orange-400 uppercase tracking-widest min-w-[100px] text-left"
+                            >
+                                {languages[currentLangIndex].name}
+                            </motion.span>
+                        </div>
                     </div>
                 </motion.div>
 
                 {/* Version Badge */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                    className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[var(--surface-highlight)] border border-[var(--border-color)] mb-8"
+                    transition={{ delay: 0.2 }}
+                    className="flex items-center gap-2 px-3 py-1 rounded-lg bg-orange-500/10 border border-orange-500/20 mb-8"
                 >
-                    <span className="relative flex h-2.5 w-2.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500"></span>
-                    </span>
-                    <span className="text-sm font-semibold text-[var(--foreground)] tracking-wide">{t.hero.badge}</span>
+                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
+                    <span className="text-[10px] font-bold text-orange-500 uppercase tracking-[0.2em]">{t.hero.badge}</span>
                 </motion.div>
 
                 {/* Main Headline */}
                 <motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-display text-display text-[var(--foreground)] tracking-tighter mb-6 max-w-5xl mx-auto leading-[0.9]"
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="text-6xl md:text-8xl lg:text-9xl font-display text-display text-[var(--foreground)] tracking-tighter mb-8 max-w-5xl mx-auto leading-[0.85]"
                 >
                     {t.hero.headline} <br className="hidden md:block" />
                     <span className="text-gradient-primary">{t.hero.headlineHighlight}</span>
@@ -156,58 +170,45 @@ export default function Hero() {
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                    className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 font-medium leading-relaxed"
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 font-medium leading-relaxed"
                 >
                     {t.hero.subtext}
                 </motion.p>
 
-                {/* Feature Pills */}
+                {/* Feature Pills - Redesigned */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    className="flex flex-wrap justify-center gap-3 mb-12"
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    className="flex flex-wrap justify-center gap-4 mb-16"
                 >
                     {features.map((feature, i) => (
-                        <motion.div
+                        <div
                             key={i}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.5 + i * 0.1 }}
-                            className="feature-pill"
+                            className="bg-white/5 border border-white/10 px-5 py-2.5 rounded-2xl flex items-center gap-3 backdrop-blur-md hover:bg-white/10 transition-colors group cursor-default shadow-lg"
                         >
-                            <feature.icon className="w-4 h-4 text-orange-500" />
-                            <span className="text-slate-300">{feature.label}</span>
-                        </motion.div>
+                            <feature.icon className="w-4 h-4 text-orange-500 group-hover:scale-110 transition-transform" />
+                            <span className="text-sm font-bold text-slate-300 uppercase tracking-widest">{feature.label}</span>
+                        </div>
                     ))}
                 </motion.div>
 
-                {/* Animated Countdown Showcase */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                    className="mb-14"
-                >
-                    <AnimatedCountdown />
-                </motion.div>
-
-                {/* Buttons */}
+                {/* Main Action Buttons */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
-                    className="flex flex-col sm:flex-row items-center gap-5"
+                    className="flex flex-col sm:flex-row items-center gap-6"
                 >
-                    <a href="https://play.google.com/store/apps/details?id=com.faysal.tallytimer" target="_blank" className="btn-premium group py-4 px-10 text-base">
-                        <span className="relative z-10 flex items-center gap-2.5">
+                    <a href="https://play.google.com/store/apps/details?id=com.faysal.tallytimer" target="_blank" className="btn-premium group py-5 px-12 text-base shadow-2xl">
+                        <span className="relative z-10 flex items-center gap-3">
                             {t.hero.downloadBtn}
                             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                         </span>
                     </a>
 
-                    <button className="px-8 py-4 rounded-full font-bold text-[var(--foreground)] bg-[var(--surface-highlight)] hover:bg-[var(--surface)] transition-all flex items-center gap-2.5 text-base border border-[var(--border-color)] hover:border-orange-500/30">
+                    <button className="px-10 py-5 rounded-full font-bold text-[var(--foreground)] bg-white/5 hover:bg-white/10 transition-all flex items-center gap-3 text-base border border-white/10 hover:border-orange-500/30 backdrop-blur-md">
                         <Sparkles className="w-5 h-5 text-orange-500" />
                         {t.hero.exploreBtn}
                     </button>

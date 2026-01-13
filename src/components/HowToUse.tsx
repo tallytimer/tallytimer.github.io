@@ -71,7 +71,7 @@ export default function HowToUse() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="glass-card p-8 flex flex-col items-center text-center group relative"
+                            className="glass-card p-8 flex flex-col items-center text-center group relative shadow-premium"
                         >
                             {/* Step Number */}
                             <span className="absolute top-4 right-4 text-5xl font-display font-bold text-white/5">{step.num}</span>

@@ -49,7 +49,7 @@ export default function UserReviews() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.05 }}
-                            className="glass-card p-6 lg:p-8 flex flex-col min-h-[320px] group"
+                            className="glass-card p-6 lg:p-8 flex flex-col min-h-[320px] group shadow-premium"
                         >
                             <div className="flex items-start justify-between mb-6">
                                 <Quote className="w-8 h-8 text-orange-500/20 group-hover:text-orange-500/40 transition-colors" />

@@ -67,7 +67,7 @@ export default function WhyUseTallyTimer() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="glass-card p-8 lg:p-10 flex items-start gap-6 group"
+                            className="glass-card p-8 lg:p-10 flex items-start gap-6 group shadow-premium"
                         >
                             <div className={`p-4 ${benefit.bg} rounded-2xl ${benefit.color} shrink-0 group-hover:scale-110 transition-transform duration-500`}>
                                 <benefit.icon className="w-8 h-8" />
