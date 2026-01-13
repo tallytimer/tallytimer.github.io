@@ -10,20 +10,20 @@ const FAQItem = ({ question, answer, index }: { question: string, answer: string
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
             viewport={{ once: true }}
-            className="mb-4 border border-[var(--border-color)] rounded-2xl overflow-hidden bg-[var(--card-bg)] hover:border-orange-500/20 transition-all duration-300 group"
+            className="mb-4 glass-card overflow-hidden group"
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full p-6 md:p-8 flex items-center justify-between text-left group"
+                className="w-full p-6 lg:p-8 flex items-center justify-between text-left"
             >
-                <span className="text-xl md:text-2xl font-display text-[var(--foreground)] pr-8 tracking-tight">
+                <span className="text-xl md:text-2xl font-display text-[var(--foreground)] pr-8 tracking-tight group-hover:text-orange-500 transition-colors">
                     {question}
                 </span>
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-500 shrink-0 ${isOpen ? 'bg-orange-500 text-white rotate-180' : 'bg-[var(--background)] text-slate-400 group-hover:text-orange-500'}`}>
+                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 shrink-0 ${isOpen ? 'bg-orange-500 text-white rotate-180' : 'bg-white/5 text-slate-400 group-hover:text-orange-500 group-hover:bg-orange-500/10'}`}>
                     {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                 </div>
             </button>
@@ -35,7 +35,7 @@ const FAQItem = ({ question, answer, index }: { question: string, answer: string
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                        <p className="px-6 md:px-8 pb-8 text-slate-500 text-base md:text-lg font-medium leading-relaxed max-w-4xl">
+                        <p className="px-6 lg:px-8 pb-8 text-slate-400 text-base md:text-lg font-medium leading-relaxed max-w-4xl">
                             {answer}
                         </p>
                     </motion.div>
@@ -49,18 +49,22 @@ export default function FAQ() {
     const { t } = useLocale();
 
     return (
-        <section id="faq" className="bg-[var(--background)] transition-colors duration-500 py-24 md:py-32">
+        <section id="faq" className="bg-[var(--background)] transition-colors duration-500 py-28 md:py-40 relative">
+            {/* Background Accent */}
+            <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-gradient-radial from-purple-500/5 to-transparent blur-[80px] rounded-full pointer-events-none -z-10" />
+
             <div className="max-w-4xl mx-auto px-6">
-                <div className="text-left mb-16 md:mb-20">
+                <div className="text-center mb-20">
+                    <span className="badge-premium mb-6 inline-block">Support</span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-6xl font-display text-[var(--foreground)] mb-6 tracking-tight"
+                        className="text-4xl md:text-6xl lg:text-7xl font-display text-[var(--foreground)] mb-8 tracking-tight"
                     >
                         {t.faq.title} <span className="text-gradient-primary">{t.faq.titleHighlight}</span>
                     </motion.h2>
-                    <p className="text-slate-500 text-lg md:text-xl font-medium max-w-3xl leading-relaxed">
+                    <p className="text-slate-400 text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed">
                         {t.faq.subtitle}
                     </p>
                 </div>

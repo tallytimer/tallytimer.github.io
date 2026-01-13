@@ -39,15 +39,19 @@ export default function WhyUseTallyTimer() {
     ];
 
     return (
-        <section className="py-20 md:py-32 bg-[var(--background)] relative overflow-hidden">
-            <div className="max-w-6xl mx-auto px-6">
+        <section className="py-28 md:py-40 bg-[var(--background)] relative overflow-hidden">
+            {/* Background Accent */}
+            <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-gradient-radial from-purple-500/5 to-transparent blur-[100px] rounded-full pointer-events-none -z-10" />
+
+            <div className="max-w-7xl mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16 md:mb-20"
+                    className="text-center mb-20"
                 >
-                    <h2 className="text-4xl md:text-6xl font-display text-[var(--foreground)] mb-6 tracking-tight">
+                    <span className="badge-premium mb-6 inline-block">Why Choose Us</span>
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-display text-[var(--foreground)] mb-8 tracking-tight">
                         {t.whyTally.title} <span className="text-gradient-primary">{t.whyTally.titleHighlight}</span>?
                     </h2>
                     <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
@@ -55,21 +59,21 @@ export default function WhyUseTallyTimer() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                     {benefits.map((benefit, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="bento-card p-8 md:p-10 flex items-start gap-6"
+                            className="glass-card p-8 lg:p-10 flex items-start gap-6 group"
                         >
-                            <div className={`p-4 ${benefit.bg} rounded-2xl ${benefit.color} shrink-0`}>
+                            <div className={`p-4 ${benefit.bg} rounded-2xl ${benefit.color} shrink-0 group-hover:scale-110 transition-transform duration-500`}>
                                 <benefit.icon className="w-8 h-8" />
                             </div>
                             <div>
-                                <h3 className="text-2xl md:text-3xl font-display text-[var(--foreground)] mb-3 tracking-tight">
+                                <h3 className="text-2xl md:text-3xl font-display text-[var(--foreground)] mb-4 tracking-tight">
                                     {benefit.title}
                                 </h3>
                                 <p className="text-slate-400 text-base md:text-lg leading-relaxed">

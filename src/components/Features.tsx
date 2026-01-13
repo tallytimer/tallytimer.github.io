@@ -15,7 +15,7 @@ export default function Features() {
             tag: t.features.customBg.tag,
             color: "text-orange-500",
             bg: "bg-orange-500/10",
-            delay: 0
+            borderGlow: "hover:shadow-orange-500/20"
         },
         {
             icon: Bell,
@@ -24,7 +24,7 @@ export default function Features() {
             tag: t.features.reminders.tag,
             color: "text-blue-500",
             bg: "bg-blue-500/10",
-            delay: 0.1
+            borderGlow: "hover:shadow-blue-500/20"
         },
         {
             icon: "12",
@@ -33,7 +33,7 @@ export default function Features() {
             tag: t.features.widgets.tag,
             color: "text-purple-500",
             bg: "bg-purple-500/10",
-            delay: 0.2
+            borderGlow: "hover:shadow-purple-500/20"
         },
         {
             icon: CalendarCheck,
@@ -42,7 +42,7 @@ export default function Features() {
             tag: t.features.calendar.tag,
             color: "text-emerald-500",
             bg: "bg-emerald-500/10",
-            delay: 0.3
+            borderGlow: "hover:shadow-emerald-500/20"
         },
         {
             icon: Save,
@@ -51,7 +51,7 @@ export default function Features() {
             tag: t.features.backup.tag,
             color: "text-rose-500",
             bg: "bg-rose-500/10",
-            delay: 0.4
+            borderGlow: "hover:shadow-rose-500/20"
         },
         {
             icon: LayoutDashboard,
@@ -60,41 +60,44 @@ export default function Features() {
             tag: t.features.canvas.tag,
             color: "text-amber-500",
             bg: "bg-amber-500/10",
-            delay: 0.5,
-            wide: true
+            borderGlow: "hover:shadow-amber-500/20"
         }
     ];
 
     return (
-        <section id="features" className="py-24 md:py-32 relative z-10">
-            <div className="max-w-6xl mx-auto px-6">
+        <section id="features" className="py-28 md:py-40 relative z-10">
+            {/* Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-orange-500/5 to-transparent blur-[120px] rounded-full pointer-events-none -z-10" />
+
+            <div className="max-w-7xl mx-auto px-6">
 
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mb-16 md:mb-20 text-center max-w-3xl mx-auto"
+                    className="mb-20 text-center max-w-3xl mx-auto"
                 >
-                    <h2 className="text-4xl md:text-6xl font-display text-[var(--foreground)] mb-6 tracking-tight">{t.features.title}</h2>
+                    <span className="badge-premium mb-6 inline-block">Features</span>
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-display text-[var(--foreground)] mb-8 tracking-tight">{t.features.title}</h2>
                     <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
                         {t.features.subtitle}
                     </p>
                 </motion.div>
 
-                {/* Uniform Grid - 3 cols on desktop, 1 on mobile */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                {/* Uniform 3-Column Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     {featureCards.map((card, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: card.delay }}
-                            className={`bento-card p-8 md:p-10 flex flex-col justify-between group ${card.wide ? "md:col-span-2 lg:col-span-2 min-h-[280px]" : "min-h-[340px]"}`}
+                            transition={{ delay: idx * 0.08 }}
+                            className={`glass-card p-8 lg:p-10 flex flex-col justify-between min-h-[320px] group ${card.borderGlow}`}
                         >
-                            <div className="flex justify-between items-start">
-                                <div className={`p-3.5 ${card.bg} rounded-2xl ${card.color}`}>
+                            <div className="flex justify-between items-start mb-6">
+                                <div className={`p-4 ${card.bg} rounded-2xl ${card.color} group-hover:scale-110 transition-transform duration-500`}>
                                     {typeof card.icon === "string" ? (
                                         <div className="w-7 h-7 border-2 border-current rounded-lg flex items-center justify-center">
                                             <span className="text-xs font-bold">{card.icon}</span>
@@ -103,16 +106,14 @@ export default function Features() {
                                         <card.icon className="w-7 h-7" />
                                     )}
                                 </div>
-                                <span className="px-3 py-1 bg-white/5 rounded-full text-[11px] font-bold uppercase tracking-widest text-slate-400 border border-white/5">{card.tag}</span>
+                                <span className="px-3 py-1.5 bg-white/5 rounded-full text-[10px] font-bold uppercase tracking-widest text-slate-400 border border-white/10">{card.tag}</span>
                             </div>
-                            <div className="space-y-3 relative z-10 pt-6">
+                            <div className="space-y-4 relative z-10 flex-grow flex flex-col justify-end">
                                 <h3 className="text-2xl md:text-3xl font-display text-[var(--foreground)] tracking-tight">{card.title}</h3>
-                                <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-md">
+                                <p className="text-slate-400 text-base md:text-lg leading-relaxed">
                                     {card.description}
                                 </p>
                             </div>
-                            {/* Hover Effect */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                         </motion.div>
                     ))}
                 </div>

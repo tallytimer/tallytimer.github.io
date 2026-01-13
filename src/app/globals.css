@@ -18,17 +18,16 @@
 }
 
 :root {
-  --background: #0F1014;
-  /* Deep, almost black background */
+  --background: #0a0a0f;
   --foreground: #F8FAFC;
-  --surface: #18191E;
-  --surface-highlight: #22232A;
-  --border-color: rgba(255, 255, 255, 0.08);
-  --primary-glow: rgba(249, 115, 22, 0.15);
+  --surface: #111116;
+  --surface-highlight: #1a1a22;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --primary-glow: rgba(249, 115, 22, 0.2);
 
-  --card-bg: rgba(24, 25, 30, 0.6);
-  --card-border: rgba(255, 255, 255, 0.08);
-  --card-hover-border: rgba(249, 115, 22, 0.3);
+  --card-bg: rgba(17, 17, 22, 0.7);
+  --card-border: rgba(255, 255, 255, 0.06);
+  --card-hover-border: rgba(249, 115, 22, 0.4);
 }
 
 [data-theme='light'] {
@@ -39,9 +38,9 @@
   --border-color: rgba(0, 0, 0, 0.06);
   --primary-glow: rgba(249, 115, 22, 0.1);
 
-  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-bg: rgba(255, 255, 255, 0.9);
   --card-border: rgba(0, 0, 0, 0.06);
-  --card-hover-border: rgba(249, 115, 22, 0.2);
+  --card-hover-border: rgba(249, 115, 22, 0.3);
 }
 
 body {
@@ -74,12 +73,32 @@ body {
 }
 
 .text-gradient-primary {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-amber-600;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-amber-500 to-orange-600;
+}
+
+/* Premium Glassmorphism Card */
+.glass-card {
+  @apply relative overflow-hidden rounded-3xl border transition-all duration-500;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border-color: var(--card-border);
+  backdrop-filter: blur(40px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 20px 50px -10px rgba(0, 0, 0, 0.5);
+}
+
+.glass-card:hover {
+  border-color: var(--card-hover-border);
+  box-shadow:
+    0 0 0 1px rgba(249, 115, 22, 0.1) inset,
+    0 25px 60px -10px rgba(0, 0, 0, 0.6),
+    0 0 40px -10px var(--primary-glow);
+  transform: translateY(-4px);
 }
 
 /* Bento Card Utility */
 .bento-card {
-  @apply relative overflow-hidden rounded-[2rem] border transition-all duration-500;
+  @apply relative overflow-hidden rounded-3xl border transition-all duration-500;
   background: var(--card-bg);
   border-color: var(--card-border);
   backdrop-filter: blur(20px);
@@ -87,8 +106,17 @@ body {
 
 .bento-card:hover {
   border-color: var(--card-hover-border);
-  box-shadow: 0 20px 40px -10px var(--primary-glow);
-  transform: translateY(-2px);
+  box-shadow: 0 25px 50px -12px var(--primary-glow);
+  transform: translateY(-4px);
+}
+
+/* Premium Glow Effects */
+.glow-orange {
+  box-shadow: 0 0 60px -15px rgba(249, 115, 22, 0.6);
+}
+
+.glow-subtle {
+  box-shadow: 0 0 80px -20px rgba(249, 115, 22, 0.3);
 }
 
 /* Animations */
@@ -100,12 +128,30 @@ body {
   }
 
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
   }
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
 }
 
 @keyframes gradient-flow {
@@ -127,7 +173,23 @@ body {
   animation: gradient-flow 8s ease infinite;
 }
 
-/* Custom Scrollbar for Bento Sections */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Custom Scrollbar */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -146,22 +208,55 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: 50;
-  opacity: 0.03;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 /* Premium Button */
 .btn-premium {
   @apply relative inline-flex items-center justify-center px-8 py-4 rounded-full font-bold text-white overflow-hidden transition-all duration-300;
-  background: #f97316;
-  box-shadow: 0 0 20px -5px rgba(249, 115, 22, 0.5);
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #dc2626 100%);
+  box-shadow:
+    0 0 30px -5px rgba(249, 115, 22, 0.5),
+    0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
 .btn-premium:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 30px -5px rgba(249, 115, 22, 0.6);
+  transform: scale(1.03) translateY(-2px);
+  box-shadow:
+    0 0 50px -5px rgba(249, 115, 22, 0.7),
+    0 20px 40px -10px rgba(0, 0, 0, 0.6);
 }
 
 .btn-premium:active {
   transform: scale(0.98);
+}
+
+/* Premium Badge */
+.badge-premium {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(249, 115, 22, 0.05) 100%);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  color: #fb923c;
+}
+
+/* Feature Pill */
+.feature-pill {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Countdown Display Styling */
+.countdown-digit {
+  @apply font-display text-6xl md:text-8xl font-bold;
+  background: linear-gradient(180deg, #fff 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 60px rgba(249, 115, 22, 0.3);
+}
+
+.countdown-label {
+  @apply text-xs uppercase tracking-widest text-slate-500 font-bold;
 }

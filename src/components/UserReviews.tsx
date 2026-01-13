@@ -10,7 +10,7 @@ function StarRating({ rating }: { rating: number }) {
             {[...Array(5)].map((_, i) => (
                 <Star
                     key={i}
-                    className={`w-3.5 h-3.5 ${i < rating ? "text-orange-500 fill-orange-500" : "text-slate-600"}`}
+                    className={`w-4 h-4 ${i < rating ? "text-orange-500 fill-orange-500" : "text-slate-600"}`}
                 />
             ))}
         </div>
@@ -21,15 +21,19 @@ export default function UserReviews() {
     const { t } = useLocale();
 
     return (
-        <section id="reviews" className="py-24 md:py-32 bg-[var(--background)] relative overflow-hidden">
-            <div className="max-w-6xl mx-auto px-6">
+        <section id="reviews" className="py-28 md:py-40 bg-[var(--background)] relative overflow-hidden">
+            {/* Background Accent */}
+            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-radial from-emerald-500/5 to-transparent blur-[100px] rounded-full pointer-events-none -z-10" />
+
+            <div className="max-w-7xl mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16 md:mb-20"
+                    className="text-center mb-20"
                 >
-                    <h2 className="text-4xl md:text-6xl font-display text-[var(--foreground)] mb-6 tracking-tight">
+                    <span className="badge-premium mb-6 inline-block">Testimonials</span>
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-display text-[var(--foreground)] mb-8 tracking-tight">
                         {t.reviews.title} <span className="text-gradient-primary">{t.reviews.titleHighlight}</span>
                     </h2>
                     <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
@@ -41,28 +45,28 @@ export default function UserReviews() {
                     {t.reviews.users.map((review, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.05 }}
-                            className="bento-card p-6 md:p-8 flex flex-col min-h-[300px]"
+                            className="glass-card p-6 lg:p-8 flex flex-col min-h-[320px] group"
                         >
-                            <div className="flex items-start justify-between mb-4">
-                                <Quote className="w-6 h-6 text-orange-500/30" />
+                            <div className="flex items-start justify-between mb-6">
+                                <Quote className="w-8 h-8 text-orange-500/20 group-hover:text-orange-500/40 transition-colors" />
                                 <StarRating rating={5} />
                             </div>
 
-                            <p className="text-slate-300 text-sm md:text-base leading-relaxed flex-grow mb-6">
+                            <p className="text-slate-300 text-base leading-relaxed flex-grow mb-6">
                                 &ldquo;{review.review}&rdquo;
                             </p>
 
-                            <div className="flex items-center gap-3 pt-4 border-t border-[var(--border-color)]">
-                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center text-white font-bold text-xs">
+                            <div className="flex items-center gap-4 pt-6 border-t border-white/5">
+                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-orange-500/20">
                                     {review.name.charAt(0)}
                                 </div>
                                 <div>
-                                    <div className="font-display text-[var(--foreground)] text-xs md:text-sm">{review.name}</div>
-                                    <div className="text-slate-500 text-[10px] uppercase tracking-widest">{review.role}</div>
+                                    <div className="font-display text-[var(--foreground)] text-sm">{review.name}</div>
+                                    <div className="text-slate-500 text-xs uppercase tracking-widest font-bold">{review.role}</div>
                                 </div>
                             </div>
                         </motion.div>
