@@ -144,23 +144,13 @@ export default function Hero() {
                     </div>
                 </motion.div>
 
-                {/* Version Badge */}
-                <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="flex items-center gap-2 px-3 py-1 rounded-lg bg-orange-500/10 border border-orange-500/20 mb-8"
-                >
-                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
-                    <span className="text-[10px] font-bold text-orange-500 uppercase tracking-[0.2em]">{t.hero.badge}</span>
-                </motion.div>
 
-                {/* Main Headline */}
+
                 <motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
-                    className="text-6xl md:text-8xl lg:text-9xl font-display text-display text-[var(--foreground)] tracking-tighter mb-8 max-w-5xl mx-auto leading-[0.85]"
+                    className="text-5xl md:text-8xl lg:text-9xl font-display text-display text-[var(--foreground)] tracking-tighter mb-8 max-w-5xl mx-auto leading-[0.85] break-words"
                 >
                     {t.hero.headline} <br className="hidden md:block" />
                     <span className="text-gradient-primary">{t.hero.headlineHighlight}</span>

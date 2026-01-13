@@ -79,7 +79,7 @@ export default function Features() {
                     className="mb-20 text-center max-w-3xl mx-auto"
                 >
                     <span className="badge-premium mb-6 inline-block">Features</span>
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-display text-[var(--foreground)] mb-8 tracking-tight">{t.features.title}</h2>
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-display text-[var(--foreground)] mb-8 tracking-tight break-words">{t.features.title}</h2>
                     <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
                         {t.features.subtitle}
                     </p>
