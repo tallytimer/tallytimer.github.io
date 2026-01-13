@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Bell, CalendarCheck, Palette, Save } from "lucide-react";
+import { Bell, CalendarCheck, Palette, Save, LayoutDashboard } from "lucide-react";
 import { useLocale } from "@/context/LocaleContext";
 
 export default function Features() {
@@ -51,7 +51,16 @@ export default function Features() {
             tag: t.features.backup.tag,
             color: "text-rose-500",
             bg: "bg-rose-500/10",
-            delay: 0.4,
+            delay: 0.4
+        },
+        {
+            icon: LayoutDashboard,
+            title: t.features.canvas.title,
+            description: t.features.canvas.description,
+            tag: t.features.canvas.tag,
+            color: "text-amber-500",
+            bg: "bg-amber-500/10",
+            delay: 0.5,
             wide: true
         }
     ];

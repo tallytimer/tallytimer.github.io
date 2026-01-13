@@ -5,12 +5,46 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { useRef } from "react";
 import { useLocale } from "@/context/LocaleContext";
 
+const floatingLanguages = [
+    { text: "Counts.", lang: "English", x: "15%", y: "20%", size: "text-lg md:text-xl", delay: 0 },
+    { text: "Compte.", lang: "Français", x: "75%", y: "15%", size: "text-base md:text-lg", delay: 2 },
+    { text: "Zählt.", lang: "Deutsch", x: "10%", y: "60%", size: "text-xl md:text-2xl", delay: 4 },
+    { text: "Cuenta.", lang: "Español", x: "80%", y: "55%", size: "text-lg md:text-xl", delay: 1 },
+    { text: "Penting.", lang: "Bahasa Melayu", x: "25%", y: "80%", size: "text-base md:text-lg", delay: 3 },
+    { text: "Berharga.", lang: "Bahasa Indonesia", x: "65%", y: "85%", size: "text-xl md:text-2xl", delay: 5 },
+];
+
 export default function Hero() {
     const containerRef = useRef<HTMLElement>(null);
     const { t } = useLocale();
 
     return (
-        <section ref={containerRef} className="relative min-h-[90vh] pt-40 md:pt-48 pb-24 md:pb-32 overflow-visible flex items-center justify-center flex-col">
+        <section ref={containerRef} className="relative min-h-[90vh] pt-40 md:pt-48 pb-24 md:pb-32 overflow-hidden flex items-center justify-center flex-col">
+
+            {/* Background Language Fragments Animation */}
+            <div className="absolute inset-0 pointer-events-none -z-10">
+                {floatingLanguages.map((item, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, scale: 0.8, x: item.x, y: item.y }}
+                        animate={{
+                            opacity: [0, 0.4, 0.4, 0],
+                            y: ["-10px", "10px", "-10px"],
+                            scale: [0.9, 1, 0.9]
+                        }}
+                        transition={{
+                            opacity: { duration: 10, repeat: Infinity, delay: item.delay, ease: "easeInOut" },
+                            y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                            scale: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+                        }}
+                        className={`absolute ${item.size} font-display font-bold text-orange-500/20 whitespace-nowrap blur-[1px] select-none`}
+                        style={{ left: item.x, top: item.y }}
+                    >
+                        {item.text}
+                    </motion.div>
+                ))}
+            </div>
+
             {/* Background Ambience */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-orange-500/10 to-transparent blur-[120px] rounded-full pointer-events-none -z-10 translate-z-0" />
 

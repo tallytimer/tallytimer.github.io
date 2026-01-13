@@ -42,6 +42,11 @@ export const translations = {
                 title: "Backup & Export",
                 description: "Your data, your control. Save your events as a file and restore them anytime to keep your memories safe.",
                 tag: "Data"
+            },
+            canvas: {
+                title: "Event Canvas",
+                description: "Your creative space. Plan every detail with integrated To-dos, important Links, and detailed Notes for each event.",
+                tag: "Organization"
             }
         },
         whyTally: {
@@ -49,8 +54,8 @@ export const translations = {
             titleHighlight: "TallyTimer",
             subtitle: "More than just a countdown app. Stay ahead of your schedule.",
             productivity: {
-                title: "Boost Productivity",
-                description: "Manage events, todos, and notes all in one beautifully designed app."
+                title: "Event Canvas",
+                description: "Experience the power of organization with integrated To-dos, essential Links, and beautiful Notes inside every event."
             },
             countdowns: {
                 title: "Visual Countdowns",
@@ -169,6 +174,11 @@ export const translations = {
                 title: "Sauvegarde & Export",
                 description: "Vos données, votre contrôle. Sauvegardez vos événements et restaurez-les à tout moment.",
                 tag: "Données"
+            },
+            canvas: {
+                title: "Canevas d'Événement",
+                description: "Votre espace créatif. Planifiez chaque détail avec des Tâches intégrées, des Liens importants et des Notes détaillées.",
+                tag: "Organisation"
             }
         },
         whyTally: {
@@ -176,8 +186,8 @@ export const translations = {
             titleHighlight: "TallyTimer",
             subtitle: "Plus qu'une simple application de compte à rebours. Gardez une longueur d'avance.",
             productivity: {
-                title: "Boostez la Productivité",
-                description: "Gérez événements, tâches et notes dans une seule application magnifique."
+                title: "Canevas d'Événement",
+                description: "Découvrez la puissance de l'organisation avec des Tâches intégrées, des Liens essentiels et de belles Notes dans chaque événement."
             },
             countdowns: {
                 title: "Comptes à Rebours Visuels",
@@ -296,6 +306,11 @@ export const translations = {
                 title: "Backup & Export",
                 description: "Ihre Daten, Ihre Kontrolle. Speichern Sie Events als Datei und stellen Sie sie jederzeit wieder her.",
                 tag: "Daten"
+            },
+            canvas: {
+                title: "Event-Canvas",
+                description: "Ihr kreativer Raum. Planen Sie jedes Detail mit integrierten Aufgaben, wichtigen Links und detaillierten Notizen.",
+                tag: "Organisation"
             }
         },
         whyTally: {
@@ -303,8 +318,8 @@ export const translations = {
             titleHighlight: "TallyTimer",
             subtitle: "Mehr als nur eine Countdown-App. Bleiben Sie Ihrem Zeitplan voraus.",
             productivity: {
-                title: "Produktivität Steigern",
-                description: "Verwalten Sie Events, Todos und Notizen in einer schön gestalteten App."
+                title: "Event-Canvas",
+                description: "Erleben Sie die Kraft der Organisation mit integrierten Aufgaben, wichtigen Links und schönen Notizen in jedem Event."
             },
             countdowns: {
                 title: "Visuelle Countdowns",
@@ -423,6 +438,11 @@ export const translations = {
                 title: "Respaldo y Exportar",
                 description: "Tus datos, tu control. Guarda tus eventos como archivo y restáuralos cuando quieras.",
                 tag: "Datos"
+            },
+            canvas: {
+                title: "Lienzo de Eventos",
+                description: "Tu espacio creativo. Planifica cada detalle con Tareas integradas, Enlaces importantes y Notas detalladas.",
+                tag: "Organización"
             }
         },
         whyTally: {
@@ -430,8 +450,8 @@ export const translations = {
             titleHighlight: "TallyTimer",
             subtitle: "Más que una simple app de cuenta regresiva. Mantente adelante de tu agenda.",
             productivity: {
-                title: "Aumenta Productividad",
-                description: "Gestiona eventos, tareas y notas en una app bellamente diseñada."
+                title: "Lienzo de Eventos",
+                description: "Experimenta el poder de la organización con Tareas integradas, Enlaces esenciales y hermosas Notas en cada evento."
             },
             countdowns: {
                 title: "Cuentas Regresivas Visuales",
@@ -550,6 +570,11 @@ export const translations = {
                 title: "Sandaran & Eksport",
                 description: "Data anda, kawalan anda. Simpan acara sebagai fail dan pulihkan bila-bila masa.",
                 tag: "Data"
+            },
+            canvas: {
+                title: "Kanvas Acara",
+                description: "Ruang kreatif anda. Rancang setiap butiran dengan Tugasan bersepadu, Pautan penting dan Nota terperinci.",
+                tag: "Organisasi"
             }
         },
         whyTally: {
@@ -557,8 +582,8 @@ export const translations = {
             titleHighlight: "TallyTimer",
             subtitle: "Lebih daripada sekadar aplikasi kira detik. Kekal mendahului jadual anda.",
             productivity: {
-                title: "Tingkatkan Produktiviti",
-                description: "Urus acara, tugasan dan nota dalam satu aplikasi yang direka indah."
+                title: "Kanvas Acara",
+                description: "Alami kuasa organisasi dengan Tugasan bersepadu, Pautan penting dan Nota indah dalam setiap acara."
             },
             countdowns: {
                 title: "Kira Detik Visual",
@@ -677,6 +702,11 @@ export const translations = {
                 title: "Cadangan & Ekspor",
                 description: "Data Anda, kendali Anda. Simpan acara sebagai file dan pulihkan kapan saja.",
                 tag: "Data"
+            },
+            canvas: {
+                title: "Kanvas Acara",
+                description: "Ruang kreatif Anda. Rencanakan setiap detail dengan Tugas terintegrasi, Tautan penting, dan Catatan terperinci.",
+                tag: "Organisasi"
             }
         },
         whyTally: {
@@ -684,8 +714,8 @@ export const translations = {
             titleHighlight: "TallyTimer",
             subtitle: "Lebih dari sekadar aplikasi hitung mundur. Tetap unggul dari jadwal Anda.",
             productivity: {
-                title: "Tingkatkan Produktivitas",
-                description: "Kelola acara, tugas, dan catatan dalam satu aplikasi yang dirancang indah."
+                title: "Kanvas Acara",
+                description: "Rasakan kekuatan organisasi dengan Tugas terintegrasi, Tautan penting, dan Catatan indah di setiap acara."
             },
             countdowns: {
                 title: "Hitung Mundur Visual",
