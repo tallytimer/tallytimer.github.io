@@ -12,26 +12,25 @@ const screenshots = [
     { title: "Widgets", image: "/images/screenshots/5.PNG" },
     { title: "Calendar Import", image: "/images/screenshots/6.PNG" },
     { title: "Backup", image: "/images/screenshots/7.PNG" },
-    { title: "Canvas", image: "/images/screenshots/8.PNG" },
-    { title: "Archive", image: "/images/screenshots/9.png" }
+    { title: "Canvas", image: "/images/screenshots/8.PNG" }
 ];
 
 export default function Screenshots() {
     const { t } = useLocale();
 
     return (
-        <section className="py-12 md:py-16 overflow-hidden">
-            <div className="max-w-6xl mx-auto px-6 mb-8 text-center md:text-left">
+        <section className="py-16 md:py-20 overflow-hidden bg-[var(--background)]">
+            <div className="max-w-6xl mx-auto px-6 mb-12 text-center md:text-left">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="max-w-xl"
+                    className="max-w-2xl"
                 >
-                    <h2 className="text-3xl md:text-4xl font-display text-[var(--foreground)] mb-3">
+                    <h2 className="text-4xl md:text-5xl font-display text-[var(--foreground)] mb-4 tracking-tight">
                         {t.screenshots.title}
                     </h2>
-                    <p className="text-sm md:text-base text-slate-400 leading-relaxed">
+                    <p className="text-base md:text-lg text-slate-400 leading-relaxed">
                         {t.screenshots.subtitle}
                     </p>
                 </motion.div>
@@ -39,7 +38,7 @@ export default function Screenshots() {
 
             <div className="relative w-full overflow-hidden">
                 <motion.div
-                    className="flex gap-4 px-6"
+                    className="flex gap-6 px-6"
                     animate={{
                         x: ["0%", "-50%"]
                     }}
@@ -47,7 +46,7 @@ export default function Screenshots() {
                         x: {
                             repeat: Infinity,
                             repeatType: "loop",
-                            duration: 50,
+                            duration: 40,
                             ease: "linear",
                         },
                     }}
@@ -56,13 +55,14 @@ export default function Screenshots() {
                     {[...screenshots, ...screenshots].map((item, index) => (
                         <div
                             key={index}
-                            className="shrink-0 w-[180px] md:w-[220px] aspect-[9/19] relative rounded-xl overflow-hidden border border-[var(--border-color)] bg-[var(--surface)] shadow-2xl"
+                            className="shrink-0 w-[220px] md:w-[280px] aspect-[9/19] relative rounded-2xl overflow-hidden border border-[var(--border-color)] bg-[var(--surface)] shadow-xl shadow-black/10 transition-transform duration-500"
                         >
                             <Image
                                 src={item.image}
                                 alt={item.title}
                                 fill
                                 className="object-cover"
+                                priority={index < 4}
                             />
                         </div>
                     ))}

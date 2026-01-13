@@ -8,7 +8,7 @@ export const translations = {
             download: "Download"
         },
         hero: {
-            badge: "Version 2.0 Now Available",
+            badge: "Version 2.0.1 Now Available",
             headline: "Every second",
             headlineHighlight: "counts.",
             subtext: "TallyTimer transforms your deadlines, events, and memories into beautiful, interactive countdowns. Designed for those who value time.",
@@ -96,6 +96,7 @@ export const translations = {
             v200: {
                 date: "January 2026",
                 changes: [
+                    "Version 2.0.1: Optimized performance and refined UI components",
                     "Encrypted Backup & Restore (.ttbk) for all events, todos, notes, and links",
                     "Redesigned Event Canvas with smooth drag-and-drop interactions",
                     "Optimized widgets with real-time updates and flexible reconfiguration",
@@ -134,7 +135,7 @@ export const translations = {
             download: "Télécharger"
         },
         hero: {
-            badge: "Version 2.0 Disponible",
+            badge: "Version 2.0.1 Disponible",
             headline: "Chaque seconde",
             headlineHighlight: "compte.",
             subtext: "TallyTimer transforme vos échéances, événements et souvenirs en de beaux comptes à rebours interactifs. Conçu pour ceux qui valorisent le temps.",
@@ -222,6 +223,7 @@ export const translations = {
             v200: {
                 date: "Janvier 2026",
                 changes: [
+                    "Version 2.0.1 : Performance optimisée et composants UI affinés",
                     "Sauvegarde et restauration chiffrées (.ttbk) pour tous les événements, tâches, notes et liens",
                     "Canevas d'événement repensé avec des interactions glisser-déposer fluides",
                     "Widgets optimisés avec mises à jour en temps réel et reconfiguration flexible",
@@ -260,7 +262,7 @@ export const translations = {
             download: "Herunterladen"
         },
         hero: {
-            badge: "Version 2.0 Jetzt Verfügbar",
+            badge: "Version 2.0.1 Jetzt Verfügbar",
             headline: "Jede Sekunde",
             headlineHighlight: "zählt.",
             subtext: "TallyTimer verwandelt Ihre Deadlines, Events und Erinnerungen in schöne, interaktive Countdowns. Entwickelt für Menschen, die Zeit schätzen.",
@@ -348,6 +350,7 @@ export const translations = {
             v200: {
                 date: "Januar 2026",
                 changes: [
+                    "Version 2.0.1: Optimierte Leistung und verfeinerte UI-Komponenten",
                     "Verschlüsseltes Backup & Restore (.ttbk) für alle Events, Todos, Notizen und Links",
                     "Neu gestaltetes Event-Canvas mit reibungslosen Drag-and-Drop-Interaktionen",
                     "Optimierte Widgets mit Echtzeit-Updates und flexibler Neukonfiguration",
@@ -386,7 +389,7 @@ export const translations = {
             download: "Descargar"
         },
         hero: {
-            badge: "Versión 2.0 Ya Disponible",
+            badge: "Versión 2.0.1 Ya Disponible",
             headline: "Cada segundo",
             headlineHighlight: "cuenta.",
             subtext: "TallyTimer transforma tus fechas límite, eventos y recuerdos en hermosas cuentas regresivas interactivas. Diseñado para quienes valoran el tiempo.",
@@ -474,6 +477,7 @@ export const translations = {
             v200: {
                 date: "Enero 2026",
                 changes: [
+                    "Versión 2.0.1: Rendimiento optimizado y componentes UI refinados",
                     "Respaldo y restauración encriptados (.ttbk) para todos los eventos, tareas, notas y enlaces",
                     "Lienzo de eventos rediseñado con interacciones suaves de arrastrar y soltar",
                     "Widgets optimizados con actualizaciones en tiempo real y reconfiguración flexible",
@@ -512,7 +516,7 @@ export const translations = {
             download: "Muat Turun"
         },
         hero: {
-            badge: "Versi 2.0 Kini Tersedia",
+            badge: "Versi 2.0.1 Kini Tersedia",
             headline: "Setiap saat",
             headlineHighlight: "penting.",
             subtext: "TallyTimer mengubah tarikh akhir, acara dan kenangan anda menjadi kira detik interaktif yang indah. Direka untuk mereka yang menghargai masa.",
@@ -600,6 +604,7 @@ export const translations = {
             v200: {
                 date: "Januari 2026",
                 changes: [
+                    "Versi 2.0.1: Prestasi dioptimumkan dan komponen UI diperhalusi",
                     "Sandaran & Pulihkan yang disulitkan (.ttbk) untuk semua acara, tugas, nota dan pautan",
                     "Kanvas Acara direka semula dengan interaksi seret-dan-lepas yang lancar",
                     "Widget yang dioptimumkan dengan kemas kini masa nyata dan konfigurasi semula fleksibel",
@@ -638,7 +643,7 @@ export const translations = {
             download: "Unduh"
         },
         hero: {
-            badge: "Versi 2.0 Sudah Tersedia",
+            badge: "Versi 2.0.1 Sudah Tersedia",
             headline: "Setiap detik",
             headlineHighlight: "berharga.",
             subtext: "TallyTimer mengubah tenggat waktu, acara, dan kenangan Anda menjadi hitung mundur interaktif yang indah. Dirancang untuk mereka yang menghargai waktu.",
@@ -726,6 +731,7 @@ export const translations = {
             v200: {
                 date: "Januari 2026",
                 changes: [
+                    "Versi 2.0.1: Performa dioptimalkan dan komponen UI disempurnakan",
                     "Cadangan & Pulihkan Terenkripsi (.ttbk) untuk semua acara, tugas, catatan, dan tautan",
                     "Kanvas Acara didesain ulang dengan interaksi seret-dan-lepas yang lancar",
                     "Widget yang dioptimalkan dengan pembaruan waktu nyata dan konfigurasi ulang fleksibel",

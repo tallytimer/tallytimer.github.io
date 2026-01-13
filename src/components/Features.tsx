@@ -57,7 +57,7 @@ export default function Features() {
     ];
 
     return (
-        <section id="features" className="py-20 relative z-10">
+        <section id="features" className="py-24 md:py-32 relative z-10">
             <div className="max-w-6xl mx-auto px-6">
 
                 {/* Section Header */}
@@ -65,16 +65,16 @@ export default function Features() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mb-12 md:mb-16 text-center max-w-2xl mx-auto"
+                    className="mb-16 md:mb-20 text-center max-w-3xl mx-auto"
                 >
-                    <h2 className="text-3xl md:text-5xl font-display text-[var(--foreground)] mb-4">{t.features.title}</h2>
-                    <p className="text-base md:text-lg text-slate-400 leading-relaxed">
+                    <h2 className="text-4xl md:text-6xl font-display text-[var(--foreground)] mb-6 tracking-tight">{t.features.title}</h2>
+                    <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
                         {t.features.subtitle}
                     </p>
                 </motion.div>
 
                 {/* Uniform Grid - 3 cols on desktop, 1 on mobile */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {featureCards.map((card, idx) => (
                         <motion.div
                             key={idx}
@@ -82,23 +82,23 @@ export default function Features() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: card.delay }}
-                            className={`bento-card p-6 flex flex-col justify-between group ${card.wide ? "md:col-span-2 lg:col-span-2 min-h-[240px]" : "min-h-[280px]"}`}
+                            className={`bento-card p-8 md:p-10 flex flex-col justify-between group ${card.wide ? "md:col-span-2 lg:col-span-2 min-h-[280px]" : "min-h-[340px]"}`}
                         >
                             <div className="flex justify-between items-start">
-                                <div className={`p-2.5 ${card.bg} rounded-xl ${card.color}`}>
+                                <div className={`p-3.5 ${card.bg} rounded-2xl ${card.color}`}>
                                     {typeof card.icon === "string" ? (
-                                        <div className="w-6 h-6 border-2 border-current rounded-md flex items-center justify-center">
-                                            <span className="text-[10px] font-bold">{card.icon}</span>
+                                        <div className="w-7 h-7 border-2 border-current rounded-lg flex items-center justify-center">
+                                            <span className="text-xs font-bold">{card.icon}</span>
                                         </div>
                                     ) : (
-                                        <card.icon className="w-6 h-6" />
+                                        <card.icon className="w-7 h-7" />
                                     )}
                                 </div>
-                                <span className="px-2.5 py-0.5 bg-white/5 rounded-full text-[10px] font-bold uppercase tracking-widest text-slate-400 border border-white/5">{card.tag}</span>
+                                <span className="px-3 py-1 bg-white/5 rounded-full text-[11px] font-bold uppercase tracking-widest text-slate-400 border border-white/5">{card.tag}</span>
                             </div>
-                            <div className="space-y-2 relative z-10 pt-4">
-                                <h3 className="text-xl font-display text-[var(--foreground)]">{card.title}</h3>
-                                <p className="text-slate-400 text-sm leading-relaxed max-w-md">
+                            <div className="space-y-3 relative z-10 pt-6">
+                                <h3 className="text-2xl md:text-3xl font-display text-[var(--foreground)] tracking-tight">{card.title}</h3>
+                                <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-md">
                                     {card.description}
                                 </p>
                             </div>

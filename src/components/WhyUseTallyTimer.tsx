@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, Timer, Shield, LayoutGrid } from "lucide-react";
+import { Zap, Shield, Layout, Target } from "lucide-react";
 import { useLocale } from "@/context/LocaleContext";
 
 export default function WhyUseTallyTimer() {
@@ -12,57 +12,50 @@ export default function WhyUseTallyTimer() {
             icon: Zap,
             title: t.whyTally.productivity.title,
             description: t.whyTally.productivity.description,
-            color: "orange",
-            gradient: "from-orange-500/10"
+            color: "text-orange-500",
+            bg: "bg-orange-500/10"
         },
         {
-            icon: Timer,
+            icon: Target,
             title: t.whyTally.countdowns.title,
             description: t.whyTally.countdowns.description,
-            color: "blue",
-            gradient: "from-blue-500/10"
+            color: "text-blue-500",
+            bg: "bg-blue-500/10"
         },
         {
             icon: Shield,
             title: t.whyTally.security.title,
             description: t.whyTally.security.description,
-            color: "emerald",
-            gradient: "from-emerald-500/10"
+            color: "text-emerald-500",
+            bg: "bg-emerald-500/10"
         },
         {
-            icon: LayoutGrid,
+            icon: Layout,
             title: t.whyTally.widgets.title,
             description: t.whyTally.widgets.description,
-            color: "purple",
-            gradient: "from-purple-500/10"
+            color: "text-purple-500",
+            bg: "bg-purple-500/10"
         }
     ];
 
-    const colorMap: Record<string, { bg: string; text: string }> = {
-        orange: { bg: "bg-orange-500/10", text: "text-orange-500" },
-        blue: { bg: "bg-blue-500/10", text: "text-blue-500" },
-        emerald: { bg: "bg-emerald-500/10", text: "text-emerald-500" },
-        purple: { bg: "bg-purple-500/10", text: "text-purple-500" }
-    };
-
     return (
-        <section id="why-tallytimer" className="py-16 md:py-20 bg-[var(--background)] relative overflow-hidden">
+        <section className="py-20 md:py-32 bg-[var(--background)] relative overflow-hidden">
             <div className="max-w-6xl mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-10 md:mb-12"
+                    className="text-center mb-16 md:mb-20"
                 >
-                    <h2 className="text-3xl md:text-5xl font-display text-[var(--foreground)] mb-3 tracking-tight">
+                    <h2 className="text-4xl md:text-6xl font-display text-[var(--foreground)] mb-6 tracking-tight">
                         {t.whyTally.title} <span className="text-gradient-primary">{t.whyTally.titleHighlight}</span>?
                     </h2>
-                    <p className="text-sm md:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
+                    <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
                         {t.whyTally.subtitle}
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     {benefits.map((benefit, index) => (
                         <motion.div
                             key={index}
@@ -70,18 +63,19 @@ export default function WhyUseTallyTimer() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="bento-card p-5 group"
+                            className="bento-card p-8 md:p-10 flex items-start gap-6"
                         >
-                            <div className={`w-9 h-9 rounded-xl ${colorMap[benefit.color].bg} flex items-center justify-center mb-3`}>
-                                <benefit.icon className={`w-4 h-4 ${colorMap[benefit.color].text}`} />
+                            <div className={`p-4 ${benefit.bg} rounded-2xl ${benefit.color} shrink-0`}>
+                                <benefit.icon className="w-8 h-8" />
                             </div>
-
-                            <h3 className="text-base md:text-lg font-display text-[var(--foreground)] mb-1.5 tracking-tight">
-                                {benefit.title}
-                            </h3>
-                            <p className="text-slate-400 text-xs md:text-sm leading-relaxed">
-                                {benefit.description}
-                            </p>
+                            <div>
+                                <h3 className="text-2xl md:text-3xl font-display text-[var(--foreground)] mb-3 tracking-tight">
+                                    {benefit.title}
+                                </h3>
+                                <p className="text-slate-400 text-base md:text-lg leading-relaxed">
+                                    {benefit.description}
+                                </p>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
