@@ -252,14 +252,26 @@ body {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--foreground);
+  opacity: 0.6;
   transition: all 0.3s ease;
+}
+
+[data-theme='light'] .feature-pill {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.05);
+  opacity: 0.8;
 }
 
 .feature-pill:hover {
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  opacity: 1;
+}
+
+[data-theme='light'] .feature-pill:hover {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Countdown Display Styling */
