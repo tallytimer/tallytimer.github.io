@@ -39,7 +39,7 @@ export default function WhyUseTallyTimer() {
     ];
 
     return (
-        <section className="py-28 md:py-40 bg-[var(--background)] relative overflow-hidden">
+        <section className="py-32 md:py-48 bg-[var(--background)] relative overflow-hidden">
             {/* Background Accent */}
             <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-gradient-radial from-purple-500/5 to-transparent blur-[100px] rounded-full pointer-events-none -z-10" />
 
@@ -48,7 +48,7 @@ export default function WhyUseTallyTimer() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-20"
+                    className="text-center mb-24"
                 >
                     <span className="badge-premium mb-6 inline-block">Why Choose Us</span>
                     <h2 className="text-4xl md:text-6xl lg:text-7xl font-display text-[var(--foreground)] mb-8 tracking-tight">

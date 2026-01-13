@@ -43,7 +43,7 @@ export default function HowToUse() {
     ];
 
     return (
-        <section id="how-it-works" className="py-28 md:py-40 bg-[var(--background)]">
+        <section id="how-it-works" className="py-32 md:py-48 bg-[var(--background)]">
             {/* Background Accent */}
             <div className="absolute left-0 top-1/2 w-[400px] h-[400px] bg-gradient-radial from-blue-500/5 to-transparent blur-[80px] rounded-full pointer-events-none -z-10" />
 
@@ -52,7 +52,7 @@ export default function HowToUse() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-20"
+                    className="text-center mb-24"
                 >
                     <span className="badge-premium mb-6 inline-block">Simple Steps</span>
                     <h2 className="text-4xl md:text-6xl lg:text-7xl font-display text-[var(--foreground)] mb-8 tracking-tight">

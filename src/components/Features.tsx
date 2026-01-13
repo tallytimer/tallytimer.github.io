@@ -65,7 +65,7 @@ export default function Features() {
     ];
 
     return (
-        <section id="features" className="py-28 md:py-40 relative z-10">
+        <section id="features" className="py-32 md:py-48 relative z-10">
             {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-orange-500/5 to-transparent blur-[120px] rounded-full pointer-events-none -z-10" />
 

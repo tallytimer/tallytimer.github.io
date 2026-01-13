@@ -18,16 +18,16 @@
 }
 
 :root {
-  --background: #0a0a0f;
+  --background: #050508;
   --foreground: #F8FAFC;
-  --surface: #111116;
-  --surface-highlight: #1a1a22;
-  --border-color: rgba(255, 255, 255, 0.06);
-  --primary-glow: rgba(249, 115, 22, 0.2);
+  --surface: #0a0a0f;
+  --surface-highlight: #111116;
+  --border-color: rgba(255, 255, 255, 0.04);
+  --primary-glow: rgba(249, 115, 22, 0.25);
 
-  --card-bg: rgba(17, 17, 22, 0.7);
-  --card-border: rgba(255, 255, 255, 0.06);
-  --card-hover-border: rgba(249, 115, 22, 0.4);
+  --card-bg: rgba(10, 10, 15, 0.8);
+  --card-border: rgba(255, 255, 255, 0.05);
+  --card-hover-border: rgba(249, 115, 22, 0.5);
 }
 
 [data-theme='light'] {
@@ -246,20 +246,30 @@ body {
 
 /* Premium Badge */
 .badge-premium {
-  @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest;
-  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(249, 115, 22, 0.05) 100%);
-  border: 1px solid rgba(249, 115, 22, 0.2);
-  color: #fb923c;
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+  @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em];
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.08) 0%, rgba(249, 115, 22, 0.03) 100%);
+  border: 1px solid rgba(249, 115, 22, 0.15);
+  color: rgba(251, 146, 60, 0.9);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
 }
 
 /* Feature Pill */
 .feature-pill {
-  @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4);
+  @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+}
+
+.feature-pill:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(249, 115, 22, 0.2);
+  transform: translateY(-2px);
+  color: #fff;
 }
 
 /* Countdown Display Styling */

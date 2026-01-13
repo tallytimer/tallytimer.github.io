@@ -21,7 +21,7 @@ export default function UserReviews() {
     const { t } = useLocale();
 
     return (
-        <section id="reviews" className="py-28 md:py-40 bg-[var(--background)] relative overflow-hidden">
+        <section id="reviews" className="py-32 md:py-48 bg-[var(--background)] relative overflow-hidden flex flex-col items-center">
             {/* Background Accent */}
             <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-radial from-emerald-500/5 to-transparent blur-[100px] rounded-full pointer-events-none -z-10" />
 
@@ -30,7 +30,7 @@ export default function UserReviews() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-20"
+                    className="text-center mb-24"
                 >
                     <span className="badge-premium mb-6 inline-block">Testimonials</span>
                     <h2 className="text-4xl md:text-6xl lg:text-7xl font-display text-[var(--foreground)] mb-8 tracking-tight">

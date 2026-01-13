@@ -19,7 +19,7 @@ export default function Screenshots() {
     const { t } = useLocale();
 
     return (
-        <section className="py-28 md:py-40 overflow-hidden bg-[var(--background)] relative flex flex-col items-center">
+        <section className="py-32 md:py-48 overflow-hidden bg-[var(--background)] relative flex flex-col items-center">
             {/* Background Accent */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-orange-500/5 to-transparent blur-[120px] rounded-full pointer-events-none -z-10" />
 

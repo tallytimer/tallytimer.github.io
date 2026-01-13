@@ -49,12 +49,12 @@ export default function FAQ() {
     const { t } = useLocale();
 
     return (
-        <section id="faq" className="bg-[var(--background)] transition-colors duration-500 py-28 md:py-40 relative">
+        <section id="faq" className="bg-[var(--background)] transition-colors duration-500 py-32 md:py-48 relative flex flex-col items-center">
             {/* Background Accent */}
             <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-gradient-radial from-purple-500/5 to-transparent blur-[80px] rounded-full pointer-events-none -z-10" />
 
             <div className="max-w-4xl mx-auto px-6">
-                <div className="text-center mb-20">
+                <div className="text-center mb-24">
                     <span className="badge-premium mb-6 inline-block">Support</span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}

@@ -150,10 +150,10 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
-                    className="text-5xl md:text-8xl lg:text-9xl font-display text-display text-[var(--foreground)] tracking-tighter mb-8 max-w-5xl mx-auto leading-[0.85] break-words"
+                    className="text-6xl md:text-8xl lg:text-[10rem] font-display text-display text-[var(--foreground)] tracking-tight mb-10 max-w-6xl mx-auto leading-[0.8] break-words"
                 >
                     {t.hero.headline} <br className="hidden md:block" />
-                    <span className="text-gradient-primary">{t.hero.headlineHighlight}</span>
+                    <span className="text-gradient-primary italic">{t.hero.headlineHighlight}</span>
                 </motion.h1>
 
                 {/* Subtext */}
