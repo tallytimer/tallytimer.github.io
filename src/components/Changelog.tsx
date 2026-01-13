@@ -71,9 +71,16 @@ export default function Evolution() {
                 </div>
 
                 {/* Timeline Design - Balanced for all screen sizes */}
-                <div className="relative max-w-4xl mx-auto pt-10">
+                <div className="relative max-w-4xl mx-auto pt-16 md:pt-20">
                     {/* Vertical Connecting Line */}
-                    <div className="absolute left-[18px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-orange-500/40 via-white/10 to-transparent md:-translate-x-1/2" />
+                    <div
+                        className="absolute left-[18px] md:left-1/2 top-0 bottom-0 w-px md:-translate-x-1/2"
+                        style={{
+                            background: "linear-gradient(to bottom, rgba(249, 115, 22, 0.5) 0%, var(--foreground) 15%, transparent 100%)",
+                            maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
+                            opacity: 0.2
+                        }}
+                    />
 
                     <div className="space-y-16 md:space-y-24">
                         {versions.map((ver, idx) => (
