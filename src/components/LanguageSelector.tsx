@@ -36,10 +36,10 @@ export default function LanguageSelector() {
         <div className="relative" ref={dropdownRef}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--surface-highlight)] border border-[var(--border-color)] hover:border-orange-500/30 transition-colors text-sm"
+                className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[var(--surface-highlight)] border border-[var(--border-color)] hover:border-orange-500/30 transition-colors text-sm md:text-base"
             >
-                <Globe className="w-4 h-4 text-slate-400" />
-                <span className="text-[var(--foreground)]">{currentLang.flag}</span>
+                <Globe className="w-5 h-5 text-slate-400" />
+                <span className="text-[var(--foreground)] font-medium">{currentLang.flag}</span>
             </button>
 
             <AnimatePresence>
@@ -48,7 +48,7 @@ export default function LanguageSelector() {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="absolute right-0 top-full mt-2 w-48 bg-[var(--surface)] border border-[var(--border-color)] rounded-xl shadow-xl overflow-hidden z-50"
+                        className="absolute right-0 top-full mt-3 w-56 bg-[var(--surface)] border border-[var(--border-color)] rounded-2xl shadow-2xl overflow-hidden z-50 p-2"
                     >
                         {languages.map((lang) => (
                             <button
@@ -57,14 +57,14 @@ export default function LanguageSelector() {
                                     setLocale(lang.code);
                                     setIsOpen(false);
                                 }}
-                                className={`w-full flex items-center justify-between px-4 py-3 text-sm hover:bg-[var(--surface-highlight)] transition-colors ${locale === lang.code ? "text-orange-500" : "text-[var(--foreground)]"
+                                className={`w-full flex items-center justify-between px-4 py-3 text-sm md:text-base rounded-xl hover:bg-[var(--surface-highlight)] transition-colors ${locale === lang.code ? "text-orange-500 bg-orange-500/5 font-bold" : "text-[var(--foreground)]"
                                     }`}
                             >
-                                <span className="flex items-center gap-3">
-                                    <span>{lang.flag}</span>
+                                <span className="flex items-center gap-4">
+                                    <span className="text-lg">{lang.flag}</span>
                                     <span>{lang.name}</span>
                                 </span>
-                                {locale === lang.code && <Check className="w-4 h-4" />}
+                                {locale === lang.code && <Check className="w-5 h-5" />}
                             </button>
                         ))}
                     </motion.div>
